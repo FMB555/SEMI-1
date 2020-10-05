@@ -4,7 +4,7 @@ import Chart from '../Partes/Chart'
 export default function Home(){
     return (
         <div>
-            <Chart></Chart>
+            <Chart/>
         </div>
     )   
 }
