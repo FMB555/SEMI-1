@@ -2,7 +2,10 @@ import React, {useState}from 'react';
 
 //Material UI
 import { makeStyles } from '@material-ui/core/styles';
-import {Button, Grid, Modal} from '@material-ui/core';
+import {Button, Grid, Modal,
+        Card, CardContent, CardActions, Typography,         //Cards
+        Table, TableContainer, TableHead, TableCell, TableBody, TableRow, Checkbox    //Tabla
+    } from '@material-ui/core';
 
 //Mis cosas
 import vacaIco from './../Icons/vaca.svg'
@@ -11,7 +14,7 @@ import vacasArray from './../Test/vacasArray.js'
 const useStyles = makeStyles((theme) => ({
     modal: {
         position: 'absolute',
-        width: 400,
+        width: '90%',
         backgroundColor: theme.palette.background.paper,
         border: '2px solid #000',
         boxShadow: theme.shadows[5],
@@ -22,64 +25,88 @@ const useStyles = makeStyles((theme) => ({
     },
     root: {
         flexGrow: 1,
-  }
+        minWidth: 275,
+    },
+    bullet: {
+        display: 'inline-block',
+        margin: '0 2px',
+        transform: 'scale(0.8)',
+    },
+    title: {
+        fontSize: 14,
+    },
+    pos: {
+        marginBottom: 12,
+    },
 }));
 
 export default function Animales() {
-    const styles = useStyles();
+    const classes = useStyles();
 
-    const [modalVaca, setModalVaca] = useState(false)
+    const [modalVacuna, setModalVacuna] = useState(false)
 
-    const [data, setData] = useState({
-        id:'',
-        texto:'',
-        vacuna: false
-    })
-
-    const abrirModalVaca = () => {
-        setModalVaca(true)
-    }
-    
-    const cerrarModalVaca = () => {
-        setModalVaca(false)
-        data.id = ''
-        data.texto = ''
-        data.vacuna = false
+    const abrirCerrarModalVacuna = () => {
+        setModalVacuna(!modalVacuna)
     }
 
-    const seleccionarVaca = (vaca) => {
-        setData(vaca)
-        abrirModalVaca()
-    }
-
-    const mostrarVacas = (vacaLista) => {
-        return (vacaLista.map(vaca => { return(
-            <Grid container item xs={12} spacing={3}>
+    const mostrarVacas = (
+        <Grid container item xs={12} spacing={3}>
                 <Grid item xs={4} >
-                    <Button type='button'
-                        onClick={() => seleccionarVaca(vaca)}><img src={vacaIco} alt='Vaca' style={{width:64, height:64}}/></Button>
-                    <p>{vaca.id}</p>
+                    <Card className={classes.root}>
+                        <CardContent>
+                            <Typography className={classes.title} color="textSecondary" gutterBottom>
+                                <img src={vacaIco} alt='Vaca' style={{width:64, height:64}}/>
+                            </Typography>
+                            <Typography variant="h5" component="h2">
+                                ID
+                            </Typography>
+                            <Typography className={classes.pos} color="textSecondary">
+                                PESO
+                            </Typography>
+                        </CardContent>
+                        <CardActions>
+                            <Button size="small" onClick={abrirCerrarModalVacuna}>Vacunas</Button>
+                        </CardActions>
+                    </Card>
                 </Grid>
             </Grid>
-        )}))
-    }
+    )
 
-    const bodyVaca = (
-        <div className={styles.modal}>
-        <p>{data.vacuna}</p>
+    const bodyVacuna = (
+        <div className={classes.modal}>
+            <TableContainer>
+                <Table>
+                    <TableHead>
+                    <TableRow>
+                        <TableCell>Vacuna</TableCell>
+                        <TableCell>Dosis (en mg)</TableCell>
+                        <TableCell>Fecha</TableCell>
+                        <TableCell>Aplicada</TableCell>
+                    </TableRow>
+                    </TableHead>
+
+                    <TableBody>
+                    <TableRow>
+                        <TableCell>Nombre de Vacuna</TableCell>
+                        <TableCell>X</TableCell>
+                        <TableCell>Hoy jsjs</TableCell>
+                        <TableCell><Checkbox/></TableCell>
+                        </TableRow>
+                    </TableBody>
+                </Table>
+            </TableContainer>
         </div>
     )
 
   return (
-    <div className={styles.root}>
+    <div className={classes.root}>
         <Grid container spacing={1}>
-            {mostrarVacas(vacasArray)}
+            {mostrarVacas}
         </Grid>
         
-
-        <Modal open={modalVaca}
-            onClose={cerrarModalVaca}>
-            {bodyVaca}
+        <Modal open={modalVacuna}
+            onClose={abrirCerrarModalVacuna}>
+            {bodyVacuna}
         </Modal>
 
     </div>
