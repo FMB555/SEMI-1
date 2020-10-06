@@ -19,6 +19,11 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
 import Modal from '@material-ui/core/Modal';
 import Assignment from '@material-ui/icons/AssignmentOutlined';
+import ExpandLess from '@material-ui/icons/ExpandLess';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import { Collapse } from '@material-ui/core';
 //import Estadistica from '../Partes/Estadistica'
 
 
@@ -139,6 +144,12 @@ const useStyles = makeStyles((theme) => ({
     width: '70%',
     borderRadius: 5,
     alignSelf: 'center',
+    margin: 5,
+  },
+  list: {
+    width: '100%',
+    maxWidth: 360,
+    backgroundColor: theme.palette.background.paper,
   },
 }));
 
@@ -157,6 +168,14 @@ export default function Dashboard() {
   }
   const handleModalClose = () => {
     setModalOpen(false);
+  }
+  const [doneOpen, setDoneOpen] = React.useState(false);
+  const handleDone = () => {
+    setDoneOpen(!doneOpen);
+  }
+  const [incompleteOpen, setIncompleteOpen] = React.useState(false);
+  const handleIncomplete = () => {
+    setIncompleteOpen(!incompleteOpen);
   }
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
@@ -219,6 +238,11 @@ export default function Dashboard() {
                     <Assignment color="primary" onClick={handleModalOpen} />
                   </p>
                 </paper>
+                <paper className={classes.worker}>
+                  <p>Empleado 1 
+                    <Assignment color="primary" onClick={handleModalOpen} />
+                  </p>
+                </paper>
               </Paper>
             </Grid>
             {/* Recent Orders */}
@@ -241,15 +265,46 @@ export default function Dashboard() {
     className={classes.modal}>
       <div className={classes.paperModal}>
         <h2 id="simple-modal-title" align="center">Empleado 1</h2>
-        <p>
-          Tareas hechas: <b>4</b>
-        </p>
-        <p>
-          Tareas en desarrollo: <b>3</b>
-        </p>
-        <p>
-          Tareas asignadas: <b>7</b>
-        </p>
+        <List>
+          <ListItem>
+            {doneOpen ? <ExpandLess onClick={handleDone}/> : <ExpandMore onClick={handleDone} />} Tareas hechas: <b>4</b>
+          </ListItem>
+            <Collapse in={doneOpen}>
+              <List component="nav" aria-label="completas" className={classes.list}>
+                <ListItem>
+                  <ListItemText secondary="Tarea 1" />
+                </ListItem>
+                <ListItem>
+                  <ListItemText secondary="Tarea 4" />
+                </ListItem>
+                <ListItem>
+                  <ListItemText secondary="Tarea 5" />
+                </ListItem>
+                <ListItem>
+                  <ListItemText secondary="Tarea 6" />
+                </ListItem>
+              </List>
+            </Collapse>
+          <ListItem>
+            {incompleteOpen ? <ExpandLess onClick={handleIncomplete} /> : <ExpandMore onClick={handleIncomplete} />} Tareas en desarrollo: <b>3</b>
+          </ListItem>
+            <Collapse in={incompleteOpen}>
+            <List component="nav" aria-label="incompletas" className={classes.list}>
+                <ListItem checklist>
+                  <ListItemText secondary="Tarea 2" />
+                </ListItem>
+                <ListItem>
+                  <ListItemText secondary="Tarea 3" />
+                </ListItem>
+                <ListItem>
+                  <ListItemText secondary="Tarea 7" />
+                </ListItem>
+              </List>
+            </Collapse>
+          <ListItem>
+            Tareas asignadas: <b>7</b>
+          </ListItem>
+        </List>
       </div>
     </Modal>
     </>
