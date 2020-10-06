@@ -20,8 +20,8 @@ const vacas = [
         vacuna: true
     },
     {
-        id: 'TX 004',
-        texto: 'Vaca 4',
+        id: 'TX 005',
+        texto: 'Vaca 5',
         vacuna: true
     }
 ]

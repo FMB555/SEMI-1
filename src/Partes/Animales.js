@@ -1,7 +1,12 @@
 import React, {useState}from 'react';
+
+//Material UI
 import { makeStyles } from '@material-ui/core/styles';
-import vacaIco from './../Icons/vaca.png'
 import {Button, Grid, Modal} from '@material-ui/core';
+
+//Mis cosas
+import vacaIco from './../Icons/vaca.svg'
+import vacasArray from './../Test/vacasArray.js'
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -25,29 +30,55 @@ export default function Animales() {
 
     const [modalVaca, setModalVaca] = useState(false)
 
-    const abrirCerrarModalVaca = () => {
-        setModalVaca(!modalVaca)
+    const [data, setData] = useState({
+        id:'',
+        texto:'',
+        vacuna: false
+    })
+
+    const abrirModalVaca = () => {
+        setModalVaca(true)
+    }
+    
+    const cerrarModalVaca = () => {
+        setModalVaca(false)
+        data.id = ''
+        data.texto = ''
+        data.vacuna = false
+    }
+
+    const seleccionarVaca = (vaca) => {
+        setData(vaca)
+        abrirModalVaca()
+    }
+
+    const mostrarVacas = (vacaLista) => {
+        return (vacaLista.map(vaca => { return(
+            <Grid container item xs={12} spacing={3}>
+                <Grid item xs={4} >
+                    <Button type='button'
+                        onClick={() => seleccionarVaca(vaca)}><img src={vacaIco} alt='Vaca' style={{width:64, height:64}}/></Button>
+                    <p>{vaca.id}</p>
+                </Grid>
+            </Grid>
+        )}))
     }
 
     const bodyVaca = (
         <div className={styles.modal}>
-            <p>Skere</p>
+        <p>{data.vacuna}</p>
         </div>
     )
 
   return (
     <div className={styles.root}>
         <Grid container spacing={1}>
-            <Grid container item xs={12} spacing={3}>
-                <Grid item xs={4}>
-                    <Button type='button' onClick={() => setModalVaca(!modalVaca)}><img src={vacaIco} alt='vaquita.png'/></Button>
-                    <p>XX_NNN</p>
-                </Grid>
-            </Grid>
+            {mostrarVacas(vacasArray)}
         </Grid>
+        
 
         <Modal open={modalVaca}
-            onClose={abrirCerrarModalVaca}>
+            onClose={cerrarModalVaca}>
             {bodyVaca}
         </Modal>
 
