@@ -9,6 +9,8 @@ import {Button, Grid, Modal,
 
 //Mis cosas
 import vacaIco from './../Icons/vaca.svg'
+import chanchoIco from './../Icons/pig.svg'
+
 //import vacasArray from './../Test/vacasArray.js'
 
 const useStyles = makeStyles((theme) => ({
@@ -58,10 +60,29 @@ export default function Animales() {
                                 <img src={vacaIco} alt='Vaca' style={{width:64, height:64}}/>
                             </Typography>
                             <Typography variant="h5" component="h2">
-                                ID
+                                X-001
                             </Typography>
                             <Typography className={classes.pos} color="textSecondary">
-                                PESO
+                                1200 KG
+                            </Typography>
+                        </CardContent>
+                        <CardActions>
+                            <Button size="small" onClick={abrirCerrarModalVacuna}>Vacunas</Button>
+                        </CardActions>
+                    </Card>
+                </Grid>
+
+                <Grid item xs={4} >
+                    <Card className={classes.root}>
+                        <CardContent>
+                            <Typography className={classes.title} color="textSecondary" gutterBottom>
+                                <img src={chanchoIco} alt='Cerdo' style={{width:64, height:64}}/>
+                            </Typography>
+                            <Typography variant="h5" component="h2">
+                                X-002
+                            </Typography>
+                            <Typography className={classes.pos} color="textSecondary">
+                                270 KG
                             </Typography>
                         </CardContent>
                         <CardActions>
@@ -77,20 +98,29 @@ export default function Animales() {
             <TableContainer>
                 <Table>
                     <TableHead>
-                    <TableRow>
-                        <TableCell>Vacuna</TableCell>
-                        <TableCell>Dosis (en mg)</TableCell>
-                        <TableCell>Fecha</TableCell>
-                        <TableCell>Aplicada</TableCell>
-                    </TableRow>
+                        <TableRow>
+                            <TableCell>Vacuna</TableCell>
+                            <TableCell>Dosis</TableCell>
+                            <TableCell>Fecha</TableCell>
+                            <TableCell>Aplicada</TableCell>
+                        </TableRow>
                     </TableHead>
 
                     <TableBody>
-                    <TableRow>
-                        <TableCell>Nombre de Vacuna</TableCell>
-                        <TableCell>X</TableCell>
-                        <TableCell>Hoy jsjs</TableCell>
-                        <TableCell><Checkbox/></TableCell>
+                        <TableRow>
+                            <TableCell>Ejemplo 1</TableCell>
+                            <TableCell>Primera</TableCell>
+                            <TableCell>7/10/2020</TableCell>
+                            <TableCell><Checkbox checked={true} disabled={true}/></TableCell>
+                        </TableRow>
+                    </TableBody>
+
+                    <TableBody>
+                        <TableRow>
+                            <TableCell>Ejemplo 2</TableCell>
+                            <TableCell>Segunda</TableCell>
+                            <TableCell>7/04/2021</TableCell>
+                            <TableCell><Checkbox/></TableCell>
                         </TableRow>
                     </TableBody>
                 </Table>
