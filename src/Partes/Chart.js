@@ -10,11 +10,12 @@ import { Collapse, List, CssBaseline, Drawer, Box, AppBar, Toolbar, Typography,
         ListItem, ListItemText } from '@material-ui/core';
 
 //Iconos de Material UI
-import { Menu, ExpandLess, ExpandMore, AssignmentOutlined } from '@material-ui/icons';
+import { Menu, ExpandLess, ExpandMore, AssignmentOutlined,
+        ArrowLeft } from '@material-ui/icons';
 
 //Nuestras partes
 import Animales from './Animales'
-//import Estadistica from '../Partes/Estadistica'
+import Estadisticas from './Estadisticas'
 
 
 /*Tareas
@@ -201,7 +202,7 @@ export default function Dashboard() {
       >
         <div className={classes.toolbarIcon}>
           <IconButton onClick={handleDrawerClose}>
-          
+            <ArrowLeft />
           </IconButton>
         </div>
         <Divider />
@@ -240,6 +241,7 @@ export default function Dashboard() {
             <Grid item xs={12}>
               <Paper className={classes.paper}>
                 <h3>Estadísticas generales</h3>
+                <Estadisticas />
               </Paper>
             </Grid>
           </Grid>

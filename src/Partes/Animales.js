@@ -9,7 +9,7 @@ import {Button, Grid, Modal,
 
 //Mis cosas
 import vacaIco from './../Icons/vaca.svg'
-import vacasArray from './../Test/vacasArray.js'
+//import vacasArray from './../Test/vacasArray.js'
 
 const useStyles = makeStyles((theme) => ({
     modal: {
