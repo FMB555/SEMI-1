@@ -15,14 +15,8 @@ import { Menu, ExpandLess, ExpandMore, AssignmentOutlined,
 
 //Nuestras partes
 import Animales from './Animales'
-import Estadisticas from './Estadisticas'
-
-
-/*Tareas
-a: Crear modal vacunas
-b: Crear Cuadro de estadisticas
-c: Crear Cuadro animales
-d: Crear Cuadro empleados*/
+//import Estadisticas from './Estadisticas'
+import Estadisticas2 from './Estadisticas2'
 
 function Copyright() {
   return (
@@ -241,7 +235,7 @@ export default function Dashboard() {
             <Grid item xs={12}>
               <Paper className={classes.paper}>
                 <h3>Estadísticas generales</h3>
-                <Estadisticas />
+                <Estadisticas2 />
               </Paper>
             </Grid>
           </Grid>
