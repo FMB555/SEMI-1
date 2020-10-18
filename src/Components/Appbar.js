@@ -11,7 +11,7 @@ import {CssBaseline, Drawer, AppBar, Toolbar, Typography,
     Divider, IconButton, Button } from '@material-ui/core';
 
 //Iconos de Material UI
-import { Menu, ArrowLeft } from '@material-ui/icons';
+import { Menu, ArrowLeft, DirectionsWalk as Logout } from '@material-ui/icons';
 
 const drawerWidth = 240;
 
@@ -102,7 +102,7 @@ export default function Appbar() {
                 <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
                     Vaca Stats
                 </Typography>
-                <Link to='/'><Button>CERRAR SESION</Button></Link>
+                <Link to='/'><Button><Logout/></Button></Link>
             </Toolbar>
         </AppBar>
 
@@ -122,7 +122,23 @@ export default function Appbar() {
           <Divider />
 
           <Divider />
-              <p>Campo X</p>
+              <p>Campo 1</p>
+          <Divider />
+
+          <Divider />
+              <Link to='/lote'>Lote N</Link>
+          <Divider />
+
+          <Divider />
+              <Link to='/personal'>Personal</Link>
+          <Divider />
+
+          <Divider />
+              <Link to='/finanzas'>Finanzas</Link>
+          <Divider />
+
+          <Divider />
+              <p>Campo 2</p>
           <Divider />
 
           <Divider />

@@ -4,6 +4,8 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 //Import Páginas
 import LogIn from './Pages/Login'
+import SignUp from './Pages/Signup'
+import Password from './Pages/Password'
 import Home from './Pages/Home'
 import Lote from './Pages/Lote'
 import Personal from './Pages/Personal'
@@ -19,6 +21,8 @@ class App extends React.Component {
         <div className="App">
           <Switch>
             <Route path='/' component={LogIn} exact />
+            <Route path='/signUp' component={SignUp} />
+            <Route path='/password' component={Password} />
             <Route path='/home' component={Home} />
             <Route path='/lote' component={Lote} />
             <Route path='/personal' component={Personal} />

@@ -12,7 +12,7 @@ import {  } from '@material-ui/icons';
 
 //Nuestras partes
 import MiAppbar from '../Components/Appbar'
-import EmpleadosModal from '../Components/EmpleadosModal'
+import Empleados from '../Components/Empleados'
 import Estadisticas from '../Components/Estadisticas'
 
 
@@ -71,6 +71,7 @@ export default function Dashboard() {
             <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
                 <h3>Empleados</h3>
+                <Empleados />
               </Paper>
             </Grid>
 
@@ -78,7 +79,6 @@ export default function Dashboard() {
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
                 <h3>Tareas</h3>
-                <EmpleadosModal/>
               </Paper>
             </Grid>
 

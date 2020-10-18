@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme) => ({
         minWidth: '100%',
         minHeight: '100%',
         height: 240,
-        border: '3px solid black'
     },
     modal: {
         position: 'absolute',
@@ -44,12 +43,6 @@ const useStyles = makeStyles((theme) => ({
     },
     pos: {
         marginBottom: 12,
-    },
-    padre: {
-        background: 'yellow'
-    },
-    hijo:{
-        display: 'inline'
     }
 }));
 
@@ -63,8 +56,8 @@ export default function Animales() {
     }
 
     const mostrarVacas = (
-        <div className={classes.padre}>
-            <div className={classes.hijo}>
+        <>
+            <Grid item xs={12} sm={4} md={3}>
                 <Card className={classes.card}>
                     <CardContent>
                         <Button size="small" onClick={abrirCerrarModalVacuna}>
@@ -78,9 +71,8 @@ export default function Animales() {
                         </Typography>
                     </CardContent>
                 </Card>
-            </div>
-            <br />
-            <div className={classes.hijo}>
+            </Grid>
+            <Grid item xs={12} sm={4} md={3}>
                 <Card className={classes.card}>
                     <CardContent>
                         <Button size="small" onClick={abrirCerrarModalVacuna}>
@@ -90,6 +82,51 @@ export default function Animales() {
                             X-002
                         </Typography>
                         <Typography className={classes.pos} color="textSecondary">
+                            200 KG
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Grid>
+            <Grid item xs={12} sm={4} md={3}>
+                <Card className={classes.card}>
+                    <CardContent>
+                        <Button size="small" onClick={abrirCerrarModalVacuna}>
+                            <img src={vacaIco} alt='Vaca' style={{width:64, height:64}}/>
+                        </Button>
+                        <Typography variant="h5" component="h2">
+                            X-003
+                        </Typography>
+                        <Typography className={classes.pos} color="textSecondary">
+                            200 KG
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Grid>
+            <Grid item xs={12} sm={4} md={3}>
+                <Card className={classes.card}>
+                    <CardContent>
+                        <Button size="small" onClick={abrirCerrarModalVacuna}>
+                            <img src={vacaIco} alt='Vaca' style={{width:64, height:64}}/>
+                        </Button>
+                        <Typography variant="h5" component="h2">
+                            X-004
+                        </Typography>
+                        <Typography className={classes.pos} color="textSecondary">
+                            200 KG
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Grid>
+            <Grid item xs={12} sm={4} md={3}>                
+                <Card className={classes.card}>
+                    <CardContent>
+                        <Button size="small" onClick={abrirCerrarModalVacuna}>
+                            <img src={vacaIco} alt='Vaca' style={{width:64, height:64}}/>
+                        </Button>
+                        <Typography variant="h5" component="h2">
+                            X-005
+                        </Typography>
+                        <Typography className={classes.pos} color="textSecondary">
                             170 KG
                         </Typography>
                     </CardContent>
@@ -97,8 +134,8 @@ export default function Animales() {
                         <Button size="small" onClick={abrirCerrarModalVacuna}>Vacunas</Button>
                     </CardActions>
                 </Card>
-            </div>
-        </div>
+            </Grid>
+        </>
     )
 
     const bodyVacuna = (
