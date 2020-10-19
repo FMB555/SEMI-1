@@ -13,6 +13,9 @@ import {CssBaseline, Drawer, AppBar, Toolbar, Typography,
 //Iconos de Material UI
 import { Menu, ArrowLeft, DirectionsWalk as Logout } from '@material-ui/icons';
 
+//Mis cosas
+import GrupoCampo from './GrupoCampo'
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -70,6 +73,9 @@ const useStyles = makeStyles((theme) => ({
           width: theme.spacing(9),
         },
       },
+      boton: {
+        width: '100%'
+      },
 }));
 
 export default function Appbar() {
@@ -118,40 +124,12 @@ export default function Appbar() {
               </IconButton>
           </div>
           <Divider />
-              <Link to='/home'>Menu</Link>
-          <Divider />
+          <Button href="/home">Menu</Button>
+          
+          <GrupoCampo />
+          <GrupoCampo />
 
-          <Divider />
-              <p>Campo 1</p>
-          <Divider />
-
-          <Divider />
-              <Link to='/lote'>Lote N</Link>
-          <Divider />
-
-          <Divider />
-              <Link to='/personal'>Personal</Link>
-          <Divider />
-
-          <Divider />
-              <Link to='/finanzas'>Finanzas</Link>
-          <Divider />
-
-          <Divider />
-              <p>Campo 2</p>
-          <Divider />
-
-          <Divider />
-              <Link to='/lote'>Lote N</Link>
-          <Divider />
-
-          <Divider />
-              <Link to='/personal'>Personal</Link>
-          <Divider />
-
-          <Divider />
-              <Link to='/finanzas'>Finanzas</Link>
-          <Divider />
+          
 
         </Drawer>
         </>

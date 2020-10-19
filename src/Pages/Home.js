@@ -66,7 +66,7 @@ export default function Home() {
               <Paper className={classes.paper}>
                 
               </Paper>
-            </Grid>
+          </Grid>
 
           <Box pt={4}>
             <Copyright />
