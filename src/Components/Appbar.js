@@ -118,23 +118,19 @@ export default function Appbar() {
               </IconButton>
           </div>
           <Divider />
-              <Link to='/home'>Menu</Link>
+              <Button href='/home'>Menu</Button>
           <Divider />
 
           <Divider />
-              <p>Campo X</p>
+              <Button href='/lote'>Lote</Button>
           <Divider />
 
           <Divider />
-              <Link to='/lote'>Lote N</Link>
+              <Button href='/personal'>Personal</Button>
           <Divider />
 
           <Divider />
-              <Link to='/personal'>Personal</Link>
-          <Divider />
-
-          <Divider />
-              <Link to='/finanzas'>Finanzas</Link>
+              <Button href='/finanzas'>Finanzas</Button>
           <Divider />
 
         </Drawer>

@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 
 //Estilos de Material UI
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,6 +13,10 @@ import { Box, Typography, Container, Grid, Paper } from '@material-ui/core';
 
 //Nuestros componentes
 import MiAppbar from '../Components/Appbar'
+import Calendario from '../Partes/Calendario'
+import Campos from '../Partes/Campos'
+import Tareas from '../Partes/Tareas'
+
 
 function Copyright() {
   return (
@@ -52,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Home() {
   const classes = useStyles();
-
+  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight)
   return (
     <>
     <div className={classes.root}>
@@ -61,13 +66,22 @@ export default function Home() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           {/*Cards con Distintos Campos*/}
+          <Grid container spacing={3}>
+              <Grid item xs={12} md={8} lg={9}>
+                  <Paper className={classes.paper}>
+                    <h3>Campos</h3>
+                    <Campos/>
+                    <Tareas/>
+                  </Paper>
+              </Grid>
 
-          <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                
-              </Paper>
-            </Grid>
-
+              <Grid item xs={12} md={4} lg={3}>
+                  <Paper className={fixedHeightPaper}>
+                    <h3>Calendario</h3>
+                    <Calendario/>
+                  </Paper>
+              </Grid>
+          </Grid> 
           <Box pt={4}>
             <Copyright />
           </Box>
