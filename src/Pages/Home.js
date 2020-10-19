@@ -68,6 +68,13 @@ export default function Home() {
               </Paper>
           </Grid>
 
+          <Grid item xs={12} md={4} lg={3}>
+                  <Paper className={fixedHeightPaper}>
+                    <h3>Calendario</h3>
+                    <Calendario/>
+                  </Paper>
+              </Grid>
+
           <Box pt={4}>
             <Copyright />
           </Box>
