@@ -12,6 +12,7 @@ import { Box, Typography, Container, Grid, Paper } from '@material-ui/core';
 
 //Nuestros componentes
 import MiAppbar from '../Components/Appbar'
+import Calendario from '../Partes/Calendario'
 
 function Copyright() {
   return (
@@ -59,21 +60,23 @@ export default function Home() {
       <MiAppbar />
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
+        <Container maxWidth="lg" spacing={3} className={classes.container}>
           {/*Cards con Distintos Campos*/}
+          <Grid container spacing={3}>
 
-          <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                
-              </Paper>
+            <Grid item xs={12}>
+                <Paper className={classes.paper}>
+                  
+                </Paper>
+            </Grid>
+
+            <Grid item xs={12}>
+                <Paper className={classes.paper}>
+                      <h3>Calendario</h3>
+                      <Calendario/>
+                </Paper>
+            </Grid>
           </Grid>
-
-          <Grid item xs={12} md={4} lg={3}>
-                  <Paper className={fixedHeightPaper}>
-                    <h3>Calendario</h3>
-                    <Calendario/>
-                  </Paper>
-              </Grid>
 
           <Box pt={4}>
             <Copyright />
