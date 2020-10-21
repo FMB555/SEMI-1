@@ -1,0 +1,7 @@
+[1014/143217.790:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
+[1015/145328.805:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
+[1015/145342.667:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\jppie\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\2f23520e-defe-4247-a389-e796e0d1bc8a: El sistema no puede encontrar la ruta especificada. (0x3)
+[1015/170916.460:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\jppie\AppData\Local\Microsoft\Edge\User Data\Crashpad\attachments\faa2f043-463d-4cf1-af8c-3727d29b03d9: El sistema no puede encontrar la ruta especificada. (0x3)
+[1015/185335.668:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
+[1017/170803.429:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)
+[1019/150049.334:ERROR:directory_reader_win.cc(43)] FindFirstFile: El sistema no puede encontrar la ruta especificada. (0x3)

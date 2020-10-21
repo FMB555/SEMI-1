@@ -17,6 +17,13 @@ import { Menu, ExpandLess, ExpandMore, AssignmentOutlined,
 import Animales from './Animales'
 //import Estadisticas from './Estadisticas'
 import Estadisticas2 from './Estadisticas2'
+import Calendario from '../Partes/Calendario'
+
+/*Tareas
+a: Crear modal vacunas
+b: Crear Cuadro de estadisticas
+c: Crear Cuadro animales
+d: Crear Cuadro empleados*/
 
 function Copyright() {
   return (
@@ -202,7 +209,7 @@ export default function Dashboard() {
         <Divider />
             <p>Menu</p>
         <Divider />
-      
+        
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
@@ -237,8 +244,13 @@ export default function Dashboard() {
                 <h3>Estadísticas generales</h3>
                 <Estadisticas2 />
               </Paper>
+              <Paper className={classes.paper}>
+                <Calendario/>
+              </Paper>
             </Grid>
+            
           </Grid>
+          
           <Box pt={4}>
             <Copyright />
           </Box>

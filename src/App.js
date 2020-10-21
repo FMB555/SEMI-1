@@ -1,18 +1,36 @@
+//Import React
 import React from 'react';
-import Home from './Componentes/Home'
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
+
+//Import Páginas
+import LogIn from './Pages/Login'
+import SignUp from './Pages/Signup'
+import Password from './Pages/Password'
+import Home from './Pages/Home'
+import Lote from './Pages/Lote'
+import Personal from './Pages/Personal'
+import Finanzas from './Pages/Finanzas'
+
+//Import Styles
 import './App.css';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 class App extends React.Component {
   render() {
     return (
-      <Router>
+      <BrowserRouter>
         <div className="App">
           <Switch>
-            <Route path='/' component={Home} exact />
+            <Route path='/' component={LogIn} exact />
+            <Route path='/signUp' component={SignUp} />
+            <Route path='/password' component={Password} />
+            <Route path='/home' component={Home} />
+            <Route path='/lote' component={Lote} />
+            <Route path='/personal' component={Personal} />
+            <Route path='/finanzas' component={Finanzas} />
+            
           </Switch>
         </div>
-      </Router>
+      </BrowserRouter>
     )
   }
 }
