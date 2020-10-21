@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     },
     pos: {
         marginBottom: 12,
-        fontSize: 8
+        fontSize: 10
 
     }
 }));

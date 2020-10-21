@@ -16,7 +16,7 @@ import { Menu, ExpandLess, ExpandMore, AssignmentOutlined,
 //Nuestras partes
 import Animales from './Animales'
 //import Estadisticas from './Estadisticas'
-import Estadisticas2 from './Estadisticas2'
+import Estadisticas2 from '../Components/Estadisticas'
 import Calendario from '../Partes/Calendario'
 
 /*Tareas
