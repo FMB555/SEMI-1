@@ -8,7 +8,7 @@ import { Box, Typography, Container, Grid, Paper } from '@material-ui/core';
 
 //Iconos de Material UI
 //import {  } from '@material-ui/icons';
-
+import NuevoCampo from '../Components/CardNuevoCampo'
 
 //Nuestros componentes
 import MiAppbar from '../Components/Appbar'
@@ -66,7 +66,9 @@ export default function Home() {
 
             <Grid item xs={12}>
                 <Paper className={classes.paper}>
-                  
+                  <Grid item xs={12} sm={6} md={3}>
+                    <NuevoCampo />
+                  </Grid>
                 </Paper>
             </Grid>
 
