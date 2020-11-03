@@ -41,10 +41,7 @@ export default class ModalCargaCampo extends Component {
     }
 
     deleteLote(key) {
-        console.log(key);
-        console.log(this.state.lotes)
-        const lotesFilt = this.state.lotes.filter( lote => lote.key !== key)
-        console.log(lotesFilt)
+        const lotesFilt = this.state.lotes.filter( lote => lote !== key)
         this.setState({
             lotes: lotesFilt
         })
