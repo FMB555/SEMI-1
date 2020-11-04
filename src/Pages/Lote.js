@@ -14,9 +14,8 @@ import {  } from '@material-ui/icons';
 import Animales from '../Components/Animales'
 import Pasturas from '../Components/Pasturas'
 import MiAppbar from './../Components/Appbar'
-import Estadisticas from '../Components/EstadisticasAnimales'
 import Deposits from '../Partes/Deposits'
-import Graph from '../Icons/file.png'
+//import Graph from '../Icons/file.png'
 
 
 function Copyright() {
