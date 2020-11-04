@@ -13,7 +13,7 @@ import {  } from '@material-ui/icons';
 //Nuestras partes
 import MiAppbar from '../Components/Appbar'
 import Empleados from '../Components/Empleados'
-import Estadisticas from '../Components/Estadisticas'
+import Estadisticas from '../Components/EstadisticasPersonal'
 
 
 

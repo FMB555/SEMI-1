@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     },
     card : {
         flexGrow: 1,
-        minWidth: 150,
+        minWidth: 100,
         maxWidth: 275,
         width: '100%',
         height: 175,

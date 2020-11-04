@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
-import {Card, CardContent, Button, Typography,  //Card
+import {Card, CardContent, Button, Typography,
         Modal} from '@material-ui/core';
 import {AddCircle} from '@material-ui/icons';
 import ModalCargaCampo from './ModalCargaCampo'

@@ -12,7 +12,9 @@ import {  } from '@material-ui/icons';
 
 //Nuestras partes
 import Animales from '../Components/Animales'
+import Pasturas from '../Components/Pasturas'
 import MiAppbar from './../Components/Appbar'
+import Estadisticas from '../Components/EstadisticasAnimales'
 
 
 
@@ -68,7 +70,7 @@ export default function Dashboard() {
           <Grid container spacing={3}>
 
 
-            <Grid item xs={12} md={8} lg={9}>
+            <Grid item xs={12} md={6}>
               <Paper className={fixedHeightPaper}>
                 <h3>Animales</h3>
                 <Animales />
@@ -76,9 +78,10 @@ export default function Dashboard() {
             </Grid>
 
 
-            <Grid item xs={12} md={4} lg={3}>
+            <Grid item xs={12} md={6}>
               <Paper className={fixedHeightPaper}>
                 <h3>Pasturas</h3>
+                <Pasturas />
               </Paper>
             </Grid>
 
@@ -86,6 +89,7 @@ export default function Dashboard() {
             <Grid item xs={12}>
               <Paper className={classes.paper}>
                 <h3>Estadísticas Animales</h3>
+                <Estadisticas/>
               </Paper>
             </Grid>
           </Grid>

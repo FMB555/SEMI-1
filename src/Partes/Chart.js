@@ -190,7 +190,6 @@ export default function Dashboard() {
             Vaca stats
           </Typography>
           <IconButton color="inherit">
-       
           </IconButton>
         </Toolbar>
       </AppBar>
