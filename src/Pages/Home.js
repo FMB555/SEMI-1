@@ -13,7 +13,7 @@ import NuevoCampo from '../Components/CardNuevoCampo'
 //Nuestros componentes
 import MiAppbar from '../Components/Appbar'
 import Calendario from '../Components/Calendario'
-//import CardCampo from '../Components/CardsCampo'
+import CardCampo from '../Components/CardsCampo'
 
 function Copyright() {
   return (
@@ -67,9 +67,13 @@ export default function Home() {
 
             <Grid item xs={12}>
                 <Paper className={classes.paper}>
-                  <Grid item xs={12} sm={6} md={3}>
-                    <NuevoCampo />
-
+                  <Grid container spacing={1}>
+                    <Grid item xs={12} sm={6} md={3}>
+                      <NuevoCampo />
+                    </Grid>
+                    <Grid item xs={12} sm={6} md={3}>
+                      <CardCampo/>
+                    </Grid>
                   </Grid>
                 </Paper>
             </Grid>
