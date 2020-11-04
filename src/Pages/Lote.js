@@ -15,7 +15,8 @@ import Animales from '../Components/Animales'
 import Pasturas from '../Components/Pasturas'
 import MiAppbar from './../Components/Appbar'
 import Estadisticas from '../Components/EstadisticasAnimales'
-
+import Deposits from '../Partes/Deposits'
+import Graph from '../Icons/file.png'
 
 
 function Copyright() {
@@ -89,7 +90,8 @@ export default function Dashboard() {
             <Grid item xs={12}>
               <Paper className={classes.paper}>
                 <h3>Estadísticas Animales</h3>
-                <Estadisticas/>
+                <Deposits />
+                
               </Paper>
             </Grid>
           </Grid>
