@@ -127,7 +127,6 @@ export default function Appbar() {
           <Button href="/home">Menu</Button>
           
           <GrupoCampo />
-          <GrupoCampo />
 
           
 

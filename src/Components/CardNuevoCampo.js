@@ -20,7 +20,8 @@ const useStyles = makeStyles((theme) => ({
     },
     modal: {
         position: 'absolute',
-        width: '90%',
+        width: '75%',
+        height: '75%',
         backgroundColor: theme.palette.background.paper,
         border: '2px solid #000',
         boxShadow: theme.shadows[5],
