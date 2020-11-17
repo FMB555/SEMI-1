@@ -11,8 +11,6 @@ import ItemAnimal  from './ItemAnimal'
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        minWidth: '100%',
-        minHeight: '100%',
         height: 240,
     },
     item: {
@@ -30,7 +28,6 @@ export default function Animales() {
   return (
     <div className={classes.root}>
         <Grid container spacing={1}>
-            <ItemAnimal className={classes.item}/>
             <ItemAnimal className={classes.item}/>
         </Grid>
 

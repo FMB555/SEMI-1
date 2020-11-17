@@ -15,6 +15,7 @@ import { Menu, ArrowLeft, DirectionsWalk as Logout } from '@material-ui/icons';
 
 //Mis cosas
 import GrupoCampo from './GrupoCampo'
+import VacaStats from '../Icons/vacastats.png'
 
 const drawerWidth = 240;
 
@@ -106,7 +107,7 @@ export default function Appbar() {
                     <Menu />
                 </IconButton>
                 <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                    Vaca Stats
+                    <img src={VacaStats} alt="" style={{width:32, height:32}}/> Vaca Stats
                 </Typography>
                 <Link to='/'><Button><Logout/></Button></Link>
             </Toolbar>
