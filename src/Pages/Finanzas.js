@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 //Estilos de Material UI
 import { makeStyles } from '@material-ui/core/styles';
 
 //Elementos de Material UI
-import { Box, Typography, Container } from '@material-ui/core';
+import { Box, Typography, Container, Grid, Paper,
+        TableContainer, Table, TableHead, TableRow, TableCell, TableBody,
+        TextField, Button, FormControl, InputLabel, Select, MenuItem
+      } from '@material-ui/core';
 
 //Iconos de Material UI
-//import {  } from '@material-ui/icons';
 
 
 //Nuestros componentes
@@ -47,11 +49,36 @@ const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     height: 240,
   },
+  cargaDatos: {
+      alignItems: 'center',
+      textAlign: 'center',
+      marginBottom: 12
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    width: 150,
+    marginLeft: 20
+  },
   
 }));
 
 export default function Dashboard() {
   const classes = useStyles();
+
+  const [detalle, setDetalle] = useState("")
+  const handleDetalle = (e) => {
+    setDetalle(e.target.value)
+  }
+
+  const [tag, setTag] = useState(null)
+  const handleTag = (e) => {
+    setTag(e.target.value)
+  }
+
+  const [precio, setPrecio] = useState(0)
+  const handlePrecio = (e) => {
+    setPrecio(e.target.value)
+  }
 
   return (
     <>
@@ -60,9 +87,57 @@ export default function Dashboard() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          {/**/}
+          <Grid item xs={12}>
+            <Paper className={classes.paper}>
+            <h1>Finanzas</h1>
+            <TableContainer>
+                <Table>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Fecha</TableCell>
+                        <TableCell>Detalle</TableCell>
+                        <TableCell>Etiqueta</TableCell>
+                        <TableCell>Precio</TableCell>
+                      </TableRow>
+                    </TableHead>
 
-
+                    <TableBody>
+                      <TableRow>
+                          <TableCell>17/11/2020</TableCell>
+                          <TableCell>Vacunas</TableCell>
+                          <TableCell>Animales</TableCell>
+                          <TableCell>$69</TableCell>
+                      </TableRow>
+                      <TableRow>
+                          <TableCell>17/11/2020</TableCell>
+                          <TableCell>Comida para el personal</TableCell>
+                          <TableCell>Personal</TableCell>
+                          <TableCell>$420</TableCell>
+                      </TableRow>
+                    </TableBody>
+                </Table>
+            </TableContainer>
+            <div className={classes.cargaDatos}>
+                <h2>Cargar Gastos</h2>
+                <form>
+                    <TextField className={classes.formControl} id="Detalle" label="Detalle" variant="outlined" onChange={handleDetalle} type="text" multiline required/>
+                    <FormControl variant="outlined" className={classes.formControl}>
+                      <InputLabel id="demo-simple-select-outlined-label">Etiqueta</InputLabel>
+                      <Select placeholder="Etiqueta" onChange={handleTag} id="Precio" required>
+                        <MenuItem value=""><em>Etiqueta</em></MenuItem>
+                        <MenuItem value={"Animales"}>Animales</MenuItem>
+                        <MenuItem value={"Personal"}>Personal</MenuItem>
+                        <MenuItem value={"Maquinaria"}>Maquinaria</MenuItem>
+                        <MenuItem value={"Otros"}>Otros</MenuItem>
+                      </Select>
+                    </FormControl>
+                    <TextField className={classes.formControl} id="precio" label="Precio" variant="outlined" type="number" onChange={handlePrecio} />
+                    <br/><br/>
+                    <Button color="primary" variant="contained" type="submit">Cargar gasto</Button>
+                </form>
+            </div>
+            </Paper>
+          </Grid>
 
           <Box pt={4}>
             <Copyright />
@@ -70,7 +145,6 @@ export default function Dashboard() {
         </Container>
       </main>
     </div>
-    
     </>
   );
 }
