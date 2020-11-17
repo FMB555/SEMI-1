@@ -56,10 +56,10 @@ export default function Calendario() {
         < Grid item xs={12} sm={6}>
           <TextField id="fechaDesde" label="Fecha Inicio" variant="outlined" type="date" onChange={handleDesde} InputLabelProps={{shrink: true}} required/>
           <br/><br/>
-          <TextField id="fechaHasta" label="Fecha Fin" variant="outlined" type="date" onChange={handleHasta} InputLabelProps={{shrink: true}}/>
+          <TextField id="fechaHasta" label="Fecha Fin" variant="outlined" type="date" onChange={handleHasta} InputLabelProps={{shrink: true}}/><br/><br/>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField id="Detalle" label="Detalle" variant="outlined" type="text" onChange={handleDetalle} multiline={true} required fullwidth/>
+          <TextField id="Detalle" label="Detalle" variant="outlined" type="text" onChange={handleDetalle} multiline={true} required fullwidth rows={5}/>
           </Grid>
         </Grid>
         <br/>
