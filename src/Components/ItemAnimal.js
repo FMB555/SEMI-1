@@ -12,6 +12,7 @@ import { InfoOutlined, FavoriteBorder } from '@material-ui/icons';
 
 //Mis cosas
 import vacaIco from './../Icons/vaca.svg'
+import ItemVacuna from './ItemVacuna'
 //import chanchoIco from './../Icons/pig.svg'
 
 //import vacasArray from './../Test/vacasArray.js'
@@ -44,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function Animales() {
+export default function Animales(props) {
     const classes = useStyles();
 
     //Handle modales
@@ -93,7 +94,7 @@ export default function Animales() {
     )
 
     const cardVacas = (
-            <Grid item xs={12} sm={4} md={3}>
+            <Grid item xs={12} sm={4}>
                 <Card className={classes.card}>
                     <CardActionArea>
                         <CardContent>
@@ -132,7 +133,7 @@ export default function Animales() {
     const [fechaInput, setFecha] = useState("")
     const handleFecha = (e) => {
         setFecha(e.target.value)
-    } 
+    }
     
     const bodyVacuna = (
         <div className={classes.modal}>
@@ -146,7 +147,6 @@ export default function Animales() {
                             <TableCell>Aplicada</TableCell>
                         </TableRow>
                     </TableHead>
-
                     <TableBody>
                         <TableRow>
                             <TableCell>Antiparasitario</TableCell>

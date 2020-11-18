@@ -23,9 +23,7 @@ export default function CardCampo() {
     const classes = useStyles();
 
     /*
-    const campos = props.campos.map(campo => {
-        
-    })
+    TRAER EL CAMPO
     */
 
     return (

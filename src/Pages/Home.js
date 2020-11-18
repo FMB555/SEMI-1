@@ -14,6 +14,7 @@ import NuevoCampo from '../Components/CardNuevoCampo'
 import MiAppbar from '../Components/Appbar'
 import Calendario from '../Components/Calendario'
 import CardCampo from '../Components/CardsCampo'
+import Eventos from '../Components/Eventos'
 
 function Copyright() {
   return (
@@ -44,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     display: 'flex',
     overflow: 'auto',
-    flexDirection: 'column',
+    flexDirection: 'column'
   },
   fixedHeight: {
     height: 240,
@@ -62,11 +63,10 @@ export default function Home() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" spacing={3} className={classes.container}>
-          {/*Cards con Distintos Campos*/}
           <Grid container spacing={3}>
-
             <Grid item xs={12}>
                 <Paper className={classes.paper}>
+                  <h3>Tu campo</h3>
                   <Grid container spacing={1}>
                     <Grid item xs={12} sm={6} md={3}>
                       <NuevoCampo />
@@ -78,12 +78,22 @@ export default function Home() {
                 </Paper>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid item xs={4}>
                 <Paper className={classes.paper}>
                       <h3>Calendario</h3>
                       <Calendario/>
                 </Paper>
             </Grid>
+
+            <Grid item xs={8}>
+              <div className= {classes.fixedHeight}>
+                <Paper className={classes.paper}>
+                      <h3>Próximos Eventos</h3>
+                      <Eventos/>
+                </Paper>
+              </div>
+            </Grid>
+
           </Grid>
 
           <Box pt={4}>

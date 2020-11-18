@@ -28,7 +28,9 @@ export default function Animales() {
   return (
     <div className={classes.root}>
         <Grid container spacing={1}>
+        <ItemAnimal className={classes.item}/>
             <ItemAnimal className={classes.item}/>
+
         </Grid>
 
     </div>

@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css'
 
+
 //Elementos de Material UI
 import { Grid, Button, Modal, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -70,24 +71,9 @@ export default function Calendario() {
 
   return (     
     <div>
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6} md={3}>
-          <Calendar value={new Date()}/>
-        </Grid>
-        <Grid item xs={12} sm={6} md={9}>
-          <Button color="primary" variant="contained" onClick={abrirCerrarCarga}>Crear Evento</Button>
-          <h4>Proximos eventos</h4>
-          <div style={{textAlign: 'left'}}>
-            <ul>
-              <li>Fecha - Vacunar X animal</li>
-              <li>Fecha - Vacunar Y animal</li>
-              <li>Fecha - Acercamiento de fecha de celo</li>
-              <li>Fecha - Vencimiento de Z tarea</li>
-            </ul>
+      <Calendar value={new Date()}/><br/>
+      <Button color="primary" variant="contained" onClick={abrirCerrarCarga}>Crear Evento</Button>
 
-          </div>
-        </Grid>
-      </Grid>
       <Modal open={modalEvento} onClose={abrirCerrarCarga}>
         {bodyModal}
       </Modal>

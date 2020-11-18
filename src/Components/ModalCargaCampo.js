@@ -38,7 +38,7 @@ export default function ModalCargaCampo() {
                 <Divider />
                 <h3>Archivo</h3>
                 <p>Deje su arhivo aquí, por favor ingrese únicamente la plantilla provista por nosotros y recuerde completar las hojas con los datos que correspondan.</p>
-                <input type='file' required/>
+                <input type='file' onChange={handleFile} required/>
                 <br/>
                 <br/>
                 <br/>
