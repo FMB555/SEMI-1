@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
   fixedHeight: {
-    height: 240,
+    height: 300,
   },
 }));
 
@@ -65,7 +65,7 @@ export default function Dashboard() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <h1>[Nombre campo] - Lote N</h1>
+          <h1>[Nombre campo]</h1>
           <h2>X Hectáreas</h2>
           <Grid container spacing={3}>
 

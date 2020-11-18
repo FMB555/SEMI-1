@@ -27,7 +27,17 @@ export default function Deposits() {
   return (
     <React.Fragment>
       <Grid container spacing={2}>
-      <Grid item xs={12} sm={4} md={3}>
+
+        <Grid item xs={12} sm={4} md={3}>
+          <Card className={classes.card}>
+            <h1>Cantidad de cabezas</h1>
+            <Typography component="p" variant="h4">
+              5
+            </Typography>
+          </Card>
+        </Grid>
+
+        <Grid item xs={12} sm={4} md={3}>
           <Card className={classes.card}>
             <h1>Peso Promedio de Vacas</h1>
             <Typography component="p" variant="h4">
@@ -44,6 +54,7 @@ export default function Deposits() {
             </Typography>
           </Card>
         </Grid>
+
       </Grid>
       
       

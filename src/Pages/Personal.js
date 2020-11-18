@@ -14,7 +14,6 @@ import {  } from '@material-ui/icons';
 import MiAppbar from '../Components/Appbar'
 import Empleados from '../Components/Empleados'
 import Estadisticas from '../Components/EstadisticasPersonal'
-import CrearTarea from '../Components/CardCrearTareas'
 
 
 
@@ -69,20 +68,21 @@ export default function Dashboard() {
           <Grid container spacing={3}>
 
 
-            <Grid item xs={12} md={10}>
+            <Grid item xs={12}>
               <Paper className={fixedHeightPaper}>
                 <h3>Empleados</h3>
                 <Empleados />
               </Paper>
             </Grid>
 
-
+            {/** 
             <Grid item xs={12} md={2}>
               <Paper className={fixedHeightPaper}>
                 <h3>Tareas</h3>
                 <CrearTarea/>
               </Paper>
             </Grid>
+            */}
 
 
             <Grid item xs={12}>
