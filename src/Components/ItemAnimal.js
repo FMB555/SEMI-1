@@ -48,6 +48,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Animales(props) {
     const classes = useStyles();
 
+    const vaca = props.vaca
+
     //Handle modales
     
     const [modalInfo, setModalInfo] = useState(false)
@@ -64,9 +66,21 @@ export default function Animales(props) {
 
     
     //Carga de nuevo peso
-    const [nuevoPeso, setPeso] = useState(0)
+    const [nuevoPeso, setPeso] = useState("")
     const cambiarPeso =(e) => {
         setPeso(e.target.value)
+    }
+
+    const cargarPeso = (e) => {
+        e.preventDefault()
+
+        let hoy = new Date()
+
+        vaca.fechaPeso = (hoy.getDate() + "/" + (hoy.getMonth() +1) + "/" + hoy.getFullYear())
+        vaca.peso = nuevoPeso
+
+        setPeso("")
+
     }
 
     const bodyInfo = (
@@ -74,20 +88,20 @@ export default function Animales(props) {
             <Grid container spacing={5}>
                 <Grid item xs={12} sm={6} md={4}>
                     <img src={vacaIco} alt='Vaca' style={{width:128, height:128}}/>
-                    <h2>Peso (en Kg): </h2>
-                    <h2>Fecha pesado: </h2>
+                    <h2>Peso: {vaca.peso} KG</h2>
+                    <h2>Fecha pesado: {vaca.fechaPeso}</h2>
                     <form>
-                        <TextField id="cargaPeso" label="Nuevo Peso" variant="outlined" onChange={cambiarPeso} type="number" required/><br/><br/>
-                        <Button color="primary" size="medium" variant="contained" type="submit">Cargar peso</Button>
+                        <TextField id="cargaPeso" value={nuevoPeso} label="Nuevo Peso" variant="outlined" onChange={cambiarPeso} type="number" required/><br/><br/>
+                        <Button color="primary" size="medium" variant="contained" type="submit" onClick={cargarPeso}>Cargar peso</Button>
                     </form>
                 </Grid>
                 <Grid item xs={12} sm={6} md={4}>
-                    <h2>Caravana: </h2>
-                    <h2>Categoría: </h2>
-                    <h2>Nacimiento: </h2>
-                    <h2>Ingreso: </h2>
-                    <h2>Género: </h2>
-                    <h2>Madre: </h2>
+                    <h2>Caravana: {vaca.caravana}</h2>
+                    <h2>Categoría: {vaca.categoria}</h2>
+                    <h2>Nacimiento: {vaca.nacimiento}</h2>
+                    <h2>Ingreso: {vaca.ingreso}</h2>
+                    <h2>Género: {vaca.genero}</h2>
+                    <h2>Madre: {vaca.madre}</h2>
                 </Grid>
             </Grid>
         </div>
@@ -100,25 +114,23 @@ export default function Animales(props) {
                         <CardContent>
                             <img src={vacaIco} alt='Vaca' style={{width:64, height:64}}/>
                             <Typography variant="h5" component="h2">
-                                Caravana
+                                {vaca.caravana}
                             </Typography>
                             <Typography className={classes.pos} color="textSecondary">
-                                Peso
+                                {vaca.peso} KG
                             </Typography>
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Button size="small" onClick={abrirCerrarModalInfo} color="primary"><InfoOutlined/></Button>
-                        <Button size="small" onClick={abrirCerrarModalVacuna} color="primary"><FavoriteBorder/></Button>
+                        <Button size="small" onClick={abrirCerrarModalInfo} color="primary">Info</Button>
+                        <Button size="small" onClick={abrirCerrarModalVacuna} color="primary">Vacunas</Button>
+                        <Button size="small" onClick={console.log("Borrar")} color="primary">X</Button>
                     </CardActions>
                 </Card>
             </Grid>
     )
     
-    
-    //Método para buscar vacunas del animal
-    
-    
+       
     //Modal Vacuna
     const [vacunaInput, setVacuna] = useState("")
     const handleVacuna = (e) => {
@@ -134,6 +146,37 @@ export default function Animales(props) {
     const handleFecha = (e) => {
         setFecha(e.target.value)
     }
+
+        
+    const [vacunas, setVacunas] = useState([])
+
+    const addVacuna = (e) => {
+        e.preventDefault()
+        
+        let nuevaVacuna = {
+            vacuna: vacunaInput,
+            dosis: dosisInput,
+            fecha: fechaInput,
+            aplicada: false
+        }
+
+        setVacuna("")
+        setDosis("")
+        setFecha("")
+
+        let arrayVacuna = [...vacunas, nuevaVacuna]
+
+        setVacunas(arrayVacuna)
+    }
+
+    const itemsVacunas = vacunas.map( vac => (
+        <TableRow>
+            <TableCell>{vac.vacuna}</TableCell>
+            <TableCell>{vac.dosis}</TableCell>
+            <TableCell>{vac.fecha}</TableCell>
+            <TableCell><Checkbox/></TableCell>
+        </TableRow>
+    ))
     
     const bodyVacuna = (
         <div className={classes.modal}>
@@ -148,22 +191,23 @@ export default function Animales(props) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        <TableRow>
-                            <TableCell>Antiparasitario</TableCell>
-                            <TableCell>Primera</TableCell>
-                            <TableCell>31/10/2020</TableCell>
-                            <TableCell><Checkbox/></TableCell>
-                        </TableRow>
+
+                        {itemsVacunas}
+
                     </TableBody>
                 </Table>
             </TableContainer>
             <div className={classes.cargaVacuna}>
                 <h1>Asignar Vacuna</h1>
                 <form>
-                    <TextField id="vacuna" label="Vacuna" variant="outlined" onChange={handleVacuna} type="text" required/>
-                    <TextField id="dosis" label="Dosis" variant="outlined" onChange={handleDosis} type="text" required/>
-                    <TextField id="fecha" label="Fecha" variant="outlined" type="date" onChange={handleFecha} InputLabelProps={{shrink: true}}/>
-                    <br/><br/><Button color="primary" variant="contained" type="submit">Crear Vacuna</Button>
+
+                    <TextField id="vacuna" value={vacunaInput} label="Vacuna" variant="outlined" onChange={handleVacuna} type="text" required/>
+                    <TextField id="dosis" value={dosisInput} label="Dosis" variant="outlined" onChange={handleDosis} type="text" required/>
+                    <TextField id="fecha" value={fechaInput} label="Fecha" variant="outlined" type="date" onChange={handleFecha} InputLabelProps={{shrink: true}}/>
+
+                    <br/><br/>
+
+                    <Button color="primary" variant="contained" type="submit" onClick={addVacuna}>Crear Vacuna</Button>
                 </form>
             </div>
         </div>

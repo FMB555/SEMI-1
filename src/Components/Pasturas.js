@@ -30,16 +30,16 @@ export default function Pasturas(props) {
         Función que lee de props las pasturas y las muestra por pantalla
     */
 
-    const ejemplo = (
-        <div className={classes.worker}>
-            <hr/>
-            <Grid container>
+   const ejemplo = (
+    <div className={classes.worker}>
+        <hr/>
+        <Grid container>
             <Grid container>
                 <Grid item xs={12} sm={6}>
                     <p>Tipo de pastura: Avena</p> 
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <p>Cantidad de Hectáreas: 20</p> 
+                    <p>Cantidad de Hectáreas: 30</p> 
                 </Grid>
             </Grid>
             <Grid container>
@@ -51,14 +51,62 @@ export default function Pasturas(props) {
                 </Grid>
             </Grid>
         </Grid>
+    </div>
+)
+
+    const ejemplo2 = (
+        <div className={classes.worker}>
+            <hr/>
+            <Grid container>
+                <Grid container>
+                    <Grid item xs={12} sm={6}>
+                        <p>Tipo de pastura: Hierba</p> 
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                        <p>Cantidad de Hectáreas: 20</p> 
+                    </Grid>
+                </Grid>
+                <Grid container>
+                    <Grid item xs={12} sm={6}>
+                        <p>Sembrado el: 4/11/2020</p> 
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                        <p>Renovar el: 4/5/2021</p> 
+                    </Grid>
+                </Grid>
+            </Grid>
+        </div>
+    )
+
+    const ejemplo3 = (
+        <div className={classes.worker}>
+            <hr/>
+            <Grid container>
+                <Grid container>
+                    <Grid item xs={12} sm={6}>
+                        <p>Tipo de pastura: Trigo</p> 
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                        <p>Cantidad de Hectáreas: 10</p> 
+                    </Grid>
+                </Grid>
+                <Grid container>
+                    <Grid item xs={12} sm={6}>
+                        <p>Sembrado el: 4/11/2020</p> 
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                        <p>Renovar el: 4/5/2021</p> 
+                    </Grid>
+                </Grid>
+            </Grid>
         </div>
     )
 
     return (
         <div className={classes.root}>
             {ejemplo}
-            {ejemplo}
-            {ejemplo}
+            {ejemplo2}
+            {ejemplo3}
         </div>
     )
 }

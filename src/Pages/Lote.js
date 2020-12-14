@@ -1,11 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
+
 import clsx from 'clsx';
 
 //Estilos de Material UI
 import { makeStyles } from '@material-ui/core/styles';
 
 //Elementos de Material UI
-import { Box, Typography, Container, Grid, Paper } from '@material-ui/core';
+import { Box, Typography, Container, Grid, Paper, Button } from '@material-ui/core';
 
 //Iconos de Material UI
 import {  } from '@material-ui/icons';
@@ -65,8 +67,22 @@ export default function Dashboard() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <h1>[Nombre campo]</h1>
-          <h2>X Hectáreas</h2>
+
+          
+          <Grid container>
+            <Grid item xs={1}>
+              <Link to='/finanzas'><Button size="small" color="secondary">Finanzas</Button></Link>
+            </Grid>
+            <Grid item xs={10}>
+              <h1>[Nombre Campo]</h1>
+              <h2>[n] Hectáreas</h2>
+            </Grid>
+            <Grid item xs={1}>
+              <Link to='/personal'><Button size="small" color="secondary">Personal</Button></Link>
+            </Grid>
+          </Grid>
+
+
           <Grid container spacing={3}>
 
 

@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import clsx from 'clsx';
 
 //Estilos de Material UI
 import { makeStyles } from '@material-ui/core/styles';
 
 //Elementos de Material UI
-import { Box, Typography, Container, Grid, Paper } from '@material-ui/core';
+import { Box, Typography, Container, Grid, Paper, Button } from '@material-ui/core';
 
 //Iconos de Material UI
 import {  } from '@material-ui/icons';
@@ -64,7 +65,20 @@ export default function Dashboard() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <h1>Campo X</h1>
+          
+          <Grid container>
+            <Grid item xs={1}>
+              <Link to='/lote'><Button size="small" color="secondary">Lotes</Button></Link>
+            </Grid>
+            <Grid item xs={10}>
+              <h1>[Nombre Campo]</h1>
+              <h2>[n] Hectáreas</h2>
+            </Grid>
+            <Grid item xs={1}>
+              <Link to='/finanzas'><Button size="small" color="secondary">Finanzas</Button></Link>
+            </Grid>
+          </Grid>
+
           <Grid container spacing={3}>
 
 
@@ -74,16 +88,6 @@ export default function Dashboard() {
                 <Empleados />
               </Paper>
             </Grid>
-
-            {/** 
-            <Grid item xs={12} md={2}>
-              <Paper className={fixedHeightPaper}>
-                <h3>Tareas</h3>
-                <CrearTarea/>
-              </Paper>
-            </Grid>
-            */}
-
 
             <Grid item xs={12}>
               <Paper className={classes.paper}>

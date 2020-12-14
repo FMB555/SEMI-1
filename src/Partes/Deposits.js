@@ -28,29 +28,29 @@ export default function Deposits() {
     <React.Fragment>
       <Grid container spacing={2}>
 
-        <Grid item xs={12} sm={4} md={3}>
+        <Grid item xs={12} sm={4}>
           <Card className={classes.card}>
             <h1>Cantidad de cabezas</h1>
             <Typography component="p" variant="h4">
-              5
+              1
             </Typography>
           </Card>
         </Grid>
 
-        <Grid item xs={12} sm={4} md={3}>
+        <Grid item xs={12} sm={4}>
           <Card className={classes.card}>
-            <h1>Peso Promedio de Vacas</h1>
+            <h1>Peso Promedio Mes Anterior</h1>
             <Typography component="p" variant="h4">
-              194 KG
+              230 KG
             </Typography>
           </Card>
         </Grid>
 
-        <Grid item xs={12} sm={4} md={3}>
+        <Grid item xs={12} sm={4}>
           <Card className={classes.card}>
             <h1>Relacion Macho/Hembra</h1>
             <Typography component="p" variant="h4">
-              3 Hembras / 2 Machos
+              1 Hembras / 0 Machos
             </Typography>
           </Card>
         </Grid>
