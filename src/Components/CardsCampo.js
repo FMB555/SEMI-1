@@ -29,7 +29,7 @@ export default function CardCampo() {
     return (
         <Card className={classes.root}>
             <CardContent>
-                <h1>Nombre campo</h1>
+                <h1>Mi campito con vacas</h1>
                 <br/>
                 <img src={granjaIco} alt='empleado' style={{width:64, height:64}}/>
             </CardContent>

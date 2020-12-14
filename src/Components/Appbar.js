@@ -44,12 +44,15 @@ export default function Appbar() {
         <CssBaseline />
         <AppBar position="absolute" className={classes.appBar}>
             <Toolbar className={classes.toolbar}>
-                <Link to='/home'><Button><Home/></Button></Link>
+                <Link to='/'><Button><Home/></Button></Link>
                 
                 <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
                     <img src={VacaStats} alt="" style={{width:32, height:32}}/> Vaca Stats
                 </Typography>
-                <Link to='/'><Button><Logout/></Button></Link>
+                {
+                 // <Link to='/'><Button><Logout/></Button></Link>
+
+                }
             </Toolbar>
         </AppBar>
         </>

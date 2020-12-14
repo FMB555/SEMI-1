@@ -27,6 +27,7 @@ function Copyright() {
   );
 }
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -45,7 +46,8 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     display: 'flex',
     overflow: 'auto',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    backgroundColor: "#eeffed"
   },
   fixedHeight: {
     height: 240,
@@ -66,11 +68,12 @@ export default function Home() {
           <Grid container spacing={3}>
             <Grid item xs={12}>
                 <Paper className={classes.paper}>
-                  <h3>Tu campo</h3>
-                  <Grid container spacing={1}>
+                  <h3>Tus campo</h3>
+                  <Grid container spacing={1}>{
                     <Grid item xs={12} sm={6} md={3}>
                       <NuevoCampo />
                     </Grid>
+                  }
                     <Grid item xs={12} sm={6} md={3}>
                       <CardCampo/>
                     </Grid>

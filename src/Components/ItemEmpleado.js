@@ -35,17 +35,19 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function ItemEmpleado() {
+export default function ItemEmpleado(props) {
     const classes = useStyles();
+
+    const empleado = props.empleado
 
     const [modal, setModal] = useState(false)
     const abrirCerrarModal= () => {
         setModal(!modal)
     }
 
-    const [venciento, setVenciento] = useState("")
+    const [vencimiento, setvencimiento] = useState("")
     const handleVencimiento = (e) => {
-        setVenciento(e.target.value)
+        setvencimiento(e.target.value)
     }
 
     const [tarea, setTarea] = useState("")
@@ -54,13 +56,40 @@ export default function ItemEmpleado() {
     }
 
     //Funcion que trae las tareas asignadas al empleado
+    const [tareas, setTareas] = useState([])
+
+    const addTarea = (e) => {
+        e.preventDefault()
+
+        let nuevaTarea = {
+            vencimiento: vencimiento,
+            tarea: tarea
+        }
+
+        setTarea("")
+        setvencimiento("")
+
+        let arrayTarea = [...tareas, nuevaTarea]
+
+        setTareas(arrayTarea)
+
+        console.log(arrayTarea)
+
+    }
+
+    const itemsTareas = tareas.map( tarea => (
+        <TableRow>
+            <TableCell>{tarea.vencimiento}</TableCell>
+            <TableCell>{tarea.tarea}</TableCell>
+        </TableRow>
+    ))
 
     const modalEmpleado = (
         <div className={classes.paperModal}>
-                <h2 align="center">Nombre</h2>
-                <h3>Sueldo: </h3>
-                <h3>Contacto: </h3>
-                <h3>DNI: </h3>
+                <h2 align="center">{empleado.nombre}</h2>
+                <h3>Sueldo: {empleado.sueldo}</h3>
+                <h3>Contacto: {empleado.mail}</h3>
+                <h3>DNI: {empleado.dni}</h3>
                 <br/>
                 <br/>
                 <TableContainer>
@@ -74,9 +103,11 @@ export default function ItemEmpleado() {
 
                         <TableBody>
                             <TableRow>
-                                <TableCell>18/11/2020</TableCell>
+                                <TableCell>2020-11-18</TableCell>
                                 <TableCell>Terminar el sprint 4</TableCell>
                             </TableRow>
+
+                            {itemsTareas}
                             
                         </TableBody>
                     </Table>
@@ -86,16 +117,16 @@ export default function ItemEmpleado() {
                     <h3 align="center">Asignar tarea</h3>
                     <Grid container>
                         <Grid item xs={12} sm={5}>
-                            <TextField id="fecha" label="Fecha" variant="outlined" type="date" onChange={handleVencimiento} InputLabelProps={{shrink: true}} fullWidth={true}/> 
+                            <TextField id="fecha" values={vencimiento} label="Fecha" variant="outlined" type="date" onChange={handleVencimiento} InputLabelProps={{shrink: true}} fullWidth={true}/> 
                         </Grid>
 
                         <Grid item xs={12} sm={7}>
-                            <TextField id="tarea" label="Tarea" variant="outlined" onChange={handleTarea} type="text" required fullWidth={true}/>
+                            <TextField id="tarea" values={tarea} label="Tarea" variant="outlined" onChange={handleTarea} type="text" required fullWidth={true}/>
                         </Grid>
                     </Grid>
                     <br/>
 
-                    <Button align="center" variant="contained" color="primary">CREAR TAREA</Button>
+                    <Button align="center" variant="contained" color="primary" onClick={addTarea}>CREAR TAREA</Button>
                 </form>
             </div>
     )
@@ -108,10 +139,10 @@ export default function ItemEmpleado() {
                             <img src={farmerIco} alt='empleado' style={{width:64, height:64}}/>
                         </Button>
                         <Typography variant="h5" component="h2">
-                            Nombre Empleado
+                            {empleado.nombre}
                         </Typography>
                         <Typography className={classes.pos} color="textSecondary">
-                            Tareas por hacer: X
+                            Tareas por hacer: {tareas.length + 1}
                         </Typography>
                     </CardContent>
                 </Card>

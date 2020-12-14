@@ -20,13 +20,15 @@ class App extends React.Component {
       <BrowserRouter>
         <div className="App">
           <Switch>
-            <Route path='/' component={LogIn} exact />
-            <Route path='/signUp' component={SignUp} />
-            <Route path='/password' component={Password} />
-            <Route path='/home' component={Home} />
+            <Route path='/' component={Home} exact/>
             <Route path='/lote' component={Lote} />
             <Route path='/personal' component={Personal} />
             <Route path='/finanzas' component={Finanzas} />
+
+
+            <Route path='/login' component={LogIn} />
+            <Route path='/signUp' component={SignUp} />
+            <Route path='/password' component={Password} />
             
           </Switch>
         </div>

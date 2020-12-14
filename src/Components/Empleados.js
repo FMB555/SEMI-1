@@ -54,14 +54,21 @@ export default function Animales() {
 
     //ARRAY DE EMPLEADOS PARA HACER CADA ITEM
 
+    const empleados = [{
+        dni: '1103622',
+        nombre: 'Jota',
+        sueldo: '50000',
+        mail: 'jota@test.com'
+    }]
+
+    const itemsEmpleados = empleados.map( item => (
+        <ItemEmpleado empleado={item}/>
+    ))
+
   return (
     <div className={classes.root}>
         <Grid container spacing={1}>
-            <ItemEmpleado/>
-            <ItemEmpleado/>
-            <ItemEmpleado/>
-            <ItemEmpleado/>
-            <ItemEmpleado/>
+            {itemsEmpleados}
         </Grid>
         
 

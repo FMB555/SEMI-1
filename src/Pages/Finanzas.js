@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom'
 
 //Estilos de Material UI
 import { makeStyles } from '@material-ui/core/styles';
@@ -70,7 +71,7 @@ export default function Dashboard() {
     setDetalle(e.target.value)
   }
 
-  const [tag, setTag] = useState(null)
+  const [tag, setTag] = useState("")
   const handleTag = (e) => {
     setTag(e.target.value)
   }
@@ -80,6 +81,40 @@ export default function Dashboard() {
     setPrecio(e.target.value)
   }
 
+  const [gastos, setGastos] = useState([])
+
+  const addGasto = (e) => {
+    e.preventDefault()
+    
+    let hoy = new Date()
+
+    let nuevoGasto = {
+        fecha: (hoy.getDate() + "/" + (hoy.getMonth() +1) + "/" + hoy.getFullYear()),
+        detalle: detalle,
+        etiqueta: tag,
+        precio: precio
+    }
+
+    setDetalle("")
+    setTag("")
+    setPrecio("")
+
+    let arrayGastos = [...gastos, nuevoGasto]
+
+    setGastos(arrayGastos)
+
+    console.log(arrayGastos)
+  }
+
+  const itemsGastos = gastos.map( gasto => (
+    <TableRow>
+        <TableCell>{gasto.fecha}</TableCell>
+        <TableCell>{gasto.detalle}</TableCell>
+        <TableCell>{gasto.etiqueta}</TableCell>
+        <TableCell>$ {gasto.precio}</TableCell>
+    </TableRow>
+  ))
+
   return (
     <>
     <div className={classes.root}>
@@ -88,8 +123,21 @@ export default function Dashboard() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid item xs={12}>
+          <Grid container>
+            <Grid item xs={1}>
+              <Link to='/personal'><Button size="small" color="secondary">Personal</Button></Link>
+            </Grid>
+            <Grid item xs={10}>
+              <h1>[Nombre Campo]</h1>
+              <h2>[n] Hectáreas</h2>
+            </Grid>
+            <Grid item xs={1}>
+              <Link to='/lote'><Button size="small" color="secondary">Lotes</Button></Link>
+            </Grid>
+          </Grid>
+
             <Paper className={classes.paper}>
-            <h1>Finanzas</h1>
+
             <TableContainer>
                 <Table>
                     <TableHead>
@@ -114,26 +162,29 @@ export default function Dashboard() {
                           <TableCell>Personal</TableCell>
                           <TableCell>$420</TableCell>
                       </TableRow>
+
+                      {itemsGastos}
+
                     </TableBody>
                 </Table>
             </TableContainer>
             <div className={classes.cargaDatos}>
                 <h2>Cargar Gastos</h2>
                 <form>
-                    <TextField className={classes.formControl} id="Detalle" label="Detalle" variant="outlined" onChange={handleDetalle} type="text" multiline required/>
+                    <TextField className={classes.formControl} value={detalle} id="Detalle" label="Detalle" variant="outlined" onChange={handleDetalle} type="text" multiline required/>
                     <FormControl variant="outlined" className={classes.formControl}>
-                      <InputLabel id="demo-simple-select-outlined-label">Etiqueta</InputLabel>
+                      <InputLabel id="demo-simple-select-outlined-label" value={tag}>Etiqueta</InputLabel>
                       <Select placeholder="Etiqueta" onChange={handleTag} id="Precio" required>
-                        <MenuItem value=""><em>Etiqueta</em></MenuItem>
+                        <MenuItem value=""><em></em></MenuItem>
                         <MenuItem value={"Animales"}>Animales</MenuItem>
                         <MenuItem value={"Personal"}>Personal</MenuItem>
                         <MenuItem value={"Maquinaria"}>Maquinaria</MenuItem>
                         <MenuItem value={"Otros"}>Otros</MenuItem>
                       </Select>
                     </FormControl>
-                    <TextField className={classes.formControl} id="precio" label="Precio" variant="outlined" type="number" onChange={handlePrecio} />
+                    <TextField className={classes.formControl} value={precio} id="precio" label="Precio" variant="outlined" type="number" onChange={handlePrecio} />
                     <br/><br/>
-                    <Button color="primary" variant="contained" type="submit">Cargar gasto</Button>
+                    <Button color="primary" variant="contained" type="submit" onClick={addGasto}>Cargar gasto</Button>
                 </form>
             </div>
             </Paper>
