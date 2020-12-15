@@ -4,6 +4,9 @@ import { Card, CardActionArea, Typography, Grid, CardContent, Button, Modal, Tex
 import { makeStyles } from '@material-ui/core/styles';
 
 
+//Conexion
+import {listEventos as listarTodoEvento} from '../Controller/controller'
+
 const useStyles = makeStyles((theme) => ({
     modal: {
         position: 'absolute',
@@ -22,58 +25,64 @@ const useStyles = makeStyles((theme) => ({
 export default function Eventos() {
   const classes = useStyles();
 
-    //Modal
-    const [modalEvento, setModal] = useState(false)
-    const abrirCerrarCarga = () => {
-      setModal(!modalEvento)
-    }
+  const [listEventos, setListEventos] = useState([])
+  const getEventos = async function() {
+    let rdo = await listarTodoEvento()
+    console.log("rdo",rdo)
+    console.log(rdo.eventos)
+  }
 
-    const [fechaDesde, setDesde] = useState(null)
-    const handleDesde = (e) => {
-      setDesde(e.target.value)
-    }
-    const [fechaHasta, setHasta] = useState(null)
-    const handleHasta = (e) => {
-     setHasta(e.target.value)
-    }
-    const [detalle, setDetalle] = useState("")
-    const handleDetalle = (e) => {
-     setDetalle(e.target.value)
-    }
-    
-    const [eventos, setEventos] = useState([])
-    const addEvento = (e) => {
-        e.preventDefault()
+  const [modalEvento, setModal] = useState(false)
+  const abrirCerrarCarga = () => {
+    setModal(!modalEvento)
+  }
 
-        let nuevoEvento = {
-            desde: fechaDesde,
-            hasta: fechaHasta,
-            detalle: detalle
-        }
+  const [fechaDesde, setDesde] = useState(null)
+  const handleDesde = (e) => {
+    setDesde(e.target.value)
+  }
+  const [fechaHasta, setHasta] = useState(null)
+  const handleHasta = (e) => {
+    setHasta(e.target.value)
+  }
+  const [detalle, setDetalle] = useState("")
+  const handleDetalle = (e) => {
+    setDetalle(e.target.value)
+  }
+  
+  const [eventos, setEventos] = useState([])
+  const addEvento = (e) => {
+      e.preventDefault()
 
-        setDesde("")
-        setHasta("")
-        setDetalle("")
+      let nuevoEvento = {
+          desde: fechaDesde,
+          hasta: fechaHasta,
+          detalle: detalle
+      }
 
-        let arrayEventos = [...eventos, nuevoEvento]
+      setDesde("")
+      setHasta("")
+      setDetalle("")
 
-        console.log(arrayEventos)
-        setEventos(arrayEventos)
-        setModal(false)
-    }
+      let arrayEventos = [...eventos, nuevoEvento]
 
-    const itemsEventos = eventos.map( evento => (
-        <Grid item xs={3}>
-            <Card>
-            <CardActionArea>
-                <CardContent>
-                    <Typography variant="h5" component="h2">{evento.desde} / {evento.hasta}</Typography>
-                    <Typography variant="subtitle1" component="h2">{evento.detalle}</Typography>
-                </CardContent>
-            </CardActionArea>
-            </Card>
-        </Grid>
-    ))
+      console.log(arrayEventos)
+      setEventos(arrayEventos)
+      setModal(false)
+  }
+
+  const itemsEventos = eventos.map( evento => (
+      <Grid item xs={3}>
+          <Card>
+          <CardActionArea>
+              <CardContent>
+                  <Typography variant="h5" component="h2">{evento.desde} / {evento.hasta}</Typography>
+                  <Typography variant="subtitle1" component="h2">{evento.detalle}</Typography>
+              </CardContent>
+          </CardActionArea>
+          </Card>
+      </Grid>
+  ))
 
   const bodyModal = (
     <div className={classes.modal}>
@@ -104,6 +113,7 @@ export default function Eventos() {
                 <CardContent>
                     <Typography variant="h5" component="h2">2020-11-18 - 2020-11-18</Typography>
                     <Typography variant="subtitle1" component="h2">Preparar el sprint 4</Typography>
+                    
                 </CardContent>
             </CardActionArea>
             </Card>
@@ -118,6 +128,7 @@ export default function Eventos() {
         <Grid container spacing={3}>
             {ejemplo}
             {itemsEventos}
+        <Button type="submit" variant="contained" color="primary" onClick={getEventos}>Eventos</Button>
         </Grid>
 
         <Modal open={modalEvento} onClose={abrirCerrarCarga}>
