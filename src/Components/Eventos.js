@@ -28,8 +28,8 @@ export default function Eventos() {
   const [listEventos, setListEventos] = useState([])
   const getEventos = async function() {
     let rdo = await listarTodoEvento()
-    console.log("rdo",rdo)
-    console.log(rdo.eventos)
+    console.log("rdo: ",rdo)
+    
   }
 
   const [modalEvento, setModal] = useState(false)

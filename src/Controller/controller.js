@@ -13,18 +13,20 @@ export const listEventos = async function(listEventos) {
                 'Origin':'http://localhost:8000',
                 'Content-Type': 'application/x-www-form-urlencoded'},
             
-        });
-        let rta = response.json()
-        console.log(rta)
+            })
+            .then(response => Promise.resolve(response.json()))
+        console.log("Controller: ",response)
 
-        switch(response.status) {
-            case 200:{
-                return {status: 0, eventos: rta}
-            }
-            default: {
-                return ({mensaje: "Error"})
-            }
-        }
+        return response
+
+        //switch(response.status) {
+        //    case 200:{
+        //        return {status: 0, eventos: response}
+        //    }
+        //    default: {
+        //        return ({mensaje: "Error"})
+        //    }
+        //}
 
     } catch(error) {
         console.log("Algo no anda", error)
