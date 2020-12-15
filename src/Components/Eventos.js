@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 import { Card, CardActionArea, Typography, Grid, CardContent, Button, Modal, TextField } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
@@ -24,19 +24,13 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Eventos() {
   const classes = useStyles();
-
-  const [listEventos, setListEventos] = useState([])
-  const getEventos = async function() {
-    let rdo = await listarTodoEvento()
-    console.log("rdo: ",rdo)
-    
-  }
-
+  
+  
   const [modalEvento, setModal] = useState(false)
   const abrirCerrarCarga = () => {
     setModal(!modalEvento)
   }
-
+  
   const [fechaDesde, setDesde] = useState(null)
   const handleDesde = (e) => {
     setDesde(e.target.value)
@@ -51,6 +45,17 @@ export default function Eventos() {
   }
   
   const [eventos, setEventos] = useState([])
+
+  const getEventos = async function() {
+    let rdo = await listarTodoEvento().then(res => console.log("skere",res))
+    console.log(rdo)
+    return rdo
+  }
+  
+  useEffect(() => {
+    setEventos(getEventos())
+  },[]);
+
   const addEvento = (e) => {
       e.preventDefault()
 
@@ -71,18 +76,20 @@ export default function Eventos() {
       setModal(false)
   }
 
-  const itemsEventos = eventos.map( evento => (
-      <Grid item xs={3}>
-          <Card>
-          <CardActionArea>
-              <CardContent>
-                  <Typography variant="h5" component="h2">{evento.desde} / {evento.hasta}</Typography>
-                  <Typography variant="subtitle1" component="h2">{evento.detalle}</Typography>
-              </CardContent>
-          </CardActionArea>
-          </Card>
-      </Grid>
-  ))
+  const itemsEventos = () => console.log("Test", eventos)
+  
+  //eventos.map( evento => (
+  //    <Grid item xs={3} key={evento.id}>
+  //        <Card>
+  //        <CardActionArea>
+  //            <CardContent>
+  //                <Typography variant="h5" component="h2">{evento.desde} / {evento.hasta}</Typography>
+  //                <Typography variant="subtitle1" component="h2">{evento.detalle}</Typography>
+  //            </CardContent>
+  //        </CardActionArea>
+  //        </Card>
+  //    </Grid>
+  //))
 
   const bodyModal = (
     <div className={classes.modal}>
@@ -104,33 +111,12 @@ export default function Eventos() {
     </div>
   )
 
-
-
-    const ejemplo =(
-        <Grid item xs={3}>
-            <Card>
-            <CardActionArea>
-                <CardContent>
-                    <Typography variant="h5" component="h2">2020-11-18 - 2020-11-18</Typography>
-                    <Typography variant="subtitle1" component="h2">Preparar el sprint 4</Typography>
-                    
-                </CardContent>
-            </CardActionArea>
-            </Card>
-        </Grid>
-    )
-    
-
-
     return (
         <div>
         <Button color="primary" variant="contained" onClick={abrirCerrarCarga}>Crear Evento</Button>
         <Grid container spacing={3}>
-            {ejemplo}
-            {itemsEventos}
-        <Button type="submit" variant="contained" color="primary" onClick={getEventos}>Eventos</Button>
+            {itemsEventos()}
         </Grid>
-
         <Modal open={modalEvento} onClose={abrirCerrarCarga}>
             {bodyModal}
         </Modal>

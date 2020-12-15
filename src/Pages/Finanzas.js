@@ -164,6 +164,13 @@ export default function Dashboard() {
                       </TableRow>
 
                       {itemsGastos}
+                      
+                      <TableRow>
+                          <TableCell></TableCell>
+                          <TableCell></TableCell>
+                          <TableCell>Total</TableCell>
+                          <TableCell>[Calcular total]</TableCell>
+                      </TableRow>
 
                     </TableBody>
                 </Table>
