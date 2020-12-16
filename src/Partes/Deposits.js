@@ -38,7 +38,7 @@ export default function Deposits() {
 
       <Grid item xs={12} sm={4}>
         <Card className={classes.card}>
-          <h1>Peso Promedio Mes Anterior</h1>
+          <h1>Peso Promedio</h1>
           <Typography component="p" variant="h4">
             213 KG
           </Typography>

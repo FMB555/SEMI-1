@@ -91,7 +91,7 @@ export default function Dashboard() {
 
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <h3>Estadísticas Animales</h3>
+                <h3>Estadísticas Mes Anterior</h3>
                 <Deposits />
                 
               </Paper>
