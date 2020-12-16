@@ -8,7 +8,7 @@ export default function ItemVacuna(props) {
 
     const [aplicada, setAplicada] = useState(vacuna.aplicada)
     const [deshabilitado, setDeshabilitado] = useState(false)
-    const handleAplicacion = (e) => {
+    const handleAplicacion = () => {
         setAplicada(true)
         setDeshabilitado(false)
     } 

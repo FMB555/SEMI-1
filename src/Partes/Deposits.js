@@ -16,49 +16,44 @@ const useStyles = makeStyles({
   card : {
     flexGrow: 1,
     minWidth: 100,
-    maxWidth: 275,
+    maxWidth: 400,
+    height: 200,
     width: '100%',
-    height: '100%',
 }
 });
 
 export default function Deposits() {
   const classes = useStyles();
   return (
-    <React.Fragment>
-      <Grid container spacing={2}>
+    <Grid container spacing={2}>
 
-        <Grid item xs={12} sm={4}>
-          <Card className={classes.card}>
-            <h1>Cantidad de cabezas</h1>
-            <Typography component="p" variant="h4">
-              1
-            </Typography>
-          </Card>
-        </Grid>
-
-        <Grid item xs={12} sm={4}>
-          <Card className={classes.card}>
-            <h1>Peso Promedio Mes Anterior</h1>
-            <Typography component="p" variant="h4">
-              230 KG
-            </Typography>
-          </Card>
-        </Grid>
-
-        <Grid item xs={12} sm={4}>
-          <Card className={classes.card}>
-            <h1>Relacion Macho/Hembra</h1>
-            <Typography component="p" variant="h4">
-              1 Hembras / 0 Machos
-            </Typography>
-          </Card>
-        </Grid>
-
+      <Grid item xs={12} sm={4}>
+        <Card className={classes.card}>
+          <h1>Cantidad de cabezas</h1>
+          <Typography component="p" variant="h4">
+            6
+          </Typography>
+        </Card>
       </Grid>
-      
-      
-      
-    </React.Fragment>
+
+      <Grid item xs={12} sm={4}>
+        <Card className={classes.card}>
+          <h1>Peso Promedio Mes Anterior</h1>
+          <Typography component="p" variant="h4">
+            213 KG
+          </Typography>
+        </Card>
+      </Grid>
+
+      <Grid item xs={12} sm={4}>
+        <Card className={classes.card}>
+          <h1>Relacion Macho/Hembra</h1>
+          <Typography component="p" variant="h4">
+            2 Hembras / 4 Machos
+          </Typography>
+        </Card>
+      </Grid>
+
+    </Grid>
   );
 }

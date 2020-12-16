@@ -19,18 +19,6 @@ import MiAppbar from './../Components/Appbar'
 import Deposits from '../Partes/Deposits'
 //import Graph from '../Icons/file.png'
 
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      {' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -109,9 +97,6 @@ export default function Dashboard() {
               </Paper>
             </Grid>
           </Grid>
-          <Box pt={4}>
-            <Copyright />
-          </Box>
         </Container>
       </main>
     </div>

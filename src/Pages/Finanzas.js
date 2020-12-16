@@ -5,27 +5,14 @@ import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles';
 
 //Elementos de Material UI
-import { Box, Typography, Container, Grid, Paper,
+import { Typography, Container, Grid, Paper,
         TableContainer, Table, TableHead, TableRow, TableCell, TableBody,
         TextField, Button, FormControl, InputLabel, Select, MenuItem
       } from '@material-ui/core';
 
-//Iconos de Material UI
-
-
 //Nuestros componentes
 import MiAppbar from '../Components/Appbar'
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      {' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -227,10 +214,6 @@ export default function Dashboard() {
             </div>
             </Paper>
           </Grid>
-
-          <Box pt={4}>
-            <Copyright />
-          </Box>
         </Container>
       </main>
     </div>
