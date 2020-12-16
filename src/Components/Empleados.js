@@ -2,14 +2,8 @@ import React from 'react';
 
 //Material UI
 import { makeStyles } from '@material-ui/core/styles';
-import {Button, Grid, Modal,
-        Card, CardContent, Typography, //CardActions,                                 //Cards
-        Collapse, List, ListItem, ListItemText } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 
-//Iconos de Material UI
-import { ExpandLess, ExpandMore } from '@material-ui/icons';
-//Mis cosas
-import farmerIco from './../Icons/farmer.svg'
 import ItemEmpleado from './ItemEmpleado'
 
 const useStyles = makeStyles((theme) => ({
@@ -17,7 +11,6 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         minWidth: '100%',
         minHeight: '100%',
-        height: 240,
     },
     modal: {
         display: 'flex',
@@ -36,8 +29,7 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         minWidth: 150,
         maxWidth: 275,
-        width: '100%',
-        height: 175,
+        width: '100%'
     },
     title: {
         fontSize: 14,
@@ -52,17 +44,87 @@ const useStyles = makeStyles((theme) => ({
 export default function Animales() {
     const classes = useStyles();
 
-    //ARRAY DE EMPLEADOS PARA HACER CADA ITEM
-
-    const empleados = [{
-        dni: '1103622',
-        nombre: 'Jota',
-        sueldo: '50000',
-        mail: 'jota@test.com'
-    }]
+    const empleados = [
+        {
+            dni: '42069678',
+            nombre: 'Juan Pablo',
+            sueldo: '$ 10.000',
+            mail: 'jota@mail.com',
+            tareas: [
+                {
+                    vencimiento: "16-12-2020",
+                    tarea: "Presentar demo",
+                },
+                {
+                    vencimiento: "18-12-2020",
+                    tarea: "Arreglar tranquera",
+                }                
+            ]
+        },
+        {
+            dni: '39721302',
+            nombre: 'Nico',
+            sueldo: '$ 15.000',
+            mail: 'nico@mail.com',
+            tareas: [
+                {
+                    vencimiento: "16-12-2020",
+                    tarea: "Presentar demo",
+                },
+                {
+                    vencimiento: "17-12-2020",
+                    tarea: "Vacunar animales",
+                }                
+            ]
+        },
+        {
+            dni: '41992153',
+            nombre: 'Fran',
+            sueldo: '$ 25.000',
+            mail: 'fran@mail.com',
+            tareas: [
+                {
+                    vencimiento: "16-12-2020",
+                    tarea: "Presentar demo",
+                },
+                {
+                    vencimiento: "16-12-2020",
+                    tarea: "Comprar vacunas",
+                }                
+            ]
+        },
+        {
+            dni: '40157321',
+            nombre: 'Augusto',
+            sueldo: '$ 17.000',
+            mail: 'august@mail.com',
+            tareas: [
+                {
+                    vencimiento: "16-12-2020",
+                    tarea: "Presentar demo",
+                }               
+            ]
+        },
+        {
+            dni: '40592317',
+            nombre: 'Jime',
+            sueldo: '$ 9.000',
+            mail: 'jime@mail.com',
+            tareas: [
+                {
+                    vencimiento: "16-12-2020",
+                    tarea: "Presentar demo",
+                },
+                {
+                    vencimiento: "29-12-2020",
+                    tarea: "Calcular sueldos"
+                }            
+            ]
+        },
+    ]
 
     const itemsEmpleados = empleados.map( item => (
-        <ItemEmpleado empleado={item}/>
+        <ItemEmpleado empleado={item} key={item.dni}/>
     ))
 
   return (

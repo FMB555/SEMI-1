@@ -19,17 +19,6 @@ import Eventos from '../Components/Eventos'
 //Conexion
 import { } from '../Controller/controller'
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      {' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     overflow: 'auto',
     flexDirection: 'column',
-    backgroundColor: "#eeffed"
+    minHeight: '370px'
   },
   fixedHeight: {
     height: 240,
@@ -71,7 +60,7 @@ export default function Home() {
           <Grid container spacing={3}>
             <Grid item xs={12}>
                 <Paper className={classes.paper}>
-                  <h3>Tus campo</h3>
+                  <h3>Tus campos</h3>
                   <Grid container spacing={1}>{
                     <Grid item xs={12} sm={6} md={3}>
                       <NuevoCampo />
@@ -101,10 +90,6 @@ export default function Home() {
             </Grid>
 
           </Grid>
-
-          <Box pt={4}>
-            <Copyright />
-          </Box>
         </Container>
       </main>
     </div>

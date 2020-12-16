@@ -1,11 +1,7 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 
 import { Card, CardActionArea, Typography, Grid, CardContent, Button, Modal, TextField } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
-
-
-//Conexion
-import {listEventos as listarTodoEvento} from '../Controller/controller'
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -20,10 +16,34 @@ const useStyles = makeStyles((theme) => ({
         transform: 'translate(-50%, -50%)',
         margin: 'auto'
     },
+    card: {
+      height: '160px'
+    }
   }));
 
 export default function Eventos() {
   const classes = useStyles();
+
+  let eventosArray = [
+    {
+      id: 1,
+      desde: "16-12-2020",
+      hasta: null,
+      detalle: "Demostración",
+    },
+    {
+      id: 2,
+      desde: "21-12-2020",
+      hasta: "23-12-2020",
+      detalle: "Vacunar animales",
+    },
+    {
+      id: 3,
+      desde: "24-12-2020",
+      hasta: "25-12-2020",
+      detalle: "Celebrar las fiestas",
+    },
+  ]
   
   
   const [modalEvento, setModal] = useState(false)
@@ -44,52 +64,41 @@ export default function Eventos() {
     setDetalle(e.target.value)
   }
   
-  const [eventos, setEventos] = useState([])
-
-  const getEventos = async function() {
-    let rdo = await listarTodoEvento().then(res => console.log("skere",res))
-    console.log(rdo)
-    return rdo
-  }
-  
-  useEffect(() => {
-    setEventos(getEventos())
-  },[]);
+  const [eventos, setEventos] = useState(eventosArray)
 
   const addEvento = (e) => {
       e.preventDefault()
 
       let nuevoEvento = {
+          id: eventos.length + 1,
           desde: fechaDesde,
           hasta: fechaHasta,
           detalle: detalle
       }
 
-      setDesde("")
-      setHasta("")
+      setDesde(null)
+      setHasta(null)
       setDetalle("")
 
       let arrayEventos = [...eventos, nuevoEvento]
 
-      console.log(arrayEventos)
       setEventos(arrayEventos)
       setModal(false)
   }
-
-  const itemsEventos = () => console.log("Test", eventos)
   
-  //eventos.map( evento => (
-  //    <Grid item xs={3} key={evento.id}>
-  //        <Card>
-  //        <CardActionArea>
-  //            <CardContent>
-  //                <Typography variant="h5" component="h2">{evento.desde} / {evento.hasta}</Typography>
-  //                <Typography variant="subtitle1" component="h2">{evento.detalle}</Typography>
-  //            </CardContent>
-  //        </CardActionArea>
-  //        </Card>
-  //    </Grid>
-  //))
+  let eventosDisplay = eventos.map( evento => (
+      <Grid item xs={3} key={evento.id}>
+          <Card className={classes.card}>
+            <CardActionArea className={classes.card}>
+                <CardContent>
+                    <Typography variant="h6" component="h5">{evento.desde}</Typography>
+                    <Typography variant="h6" component="h5">{(evento.hasta !== null) ? evento.hasta: <br/>}</Typography>
+                    <Typography variant="subtitle1" component="h1">{evento.detalle}</Typography>
+                </CardContent>
+            </CardActionArea>
+          </Card>
+      </Grid>
+  ))
 
   const bodyModal = (
     <div className={classes.modal}>
@@ -102,7 +111,7 @@ export default function Eventos() {
           <TextField id="fechaHasta" label="Fecha Fin" variant="outlined" type="date" onChange={handleHasta} InputLabelProps={{shrink: true}}/><br/><br/>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField id="Detalle" label="Detalle" variant="outlined" type="text" onChange={handleDetalle} multiline={true} required fullwidth rows={5}/>
+          <TextField id="Detalle" label="Detalle" variant="outlined" type="text" onChange={handleDetalle} multiline={true} required fullwidth="true" rows={5}/>
           </Grid>
         </Grid>
         <br/>
@@ -114,8 +123,9 @@ export default function Eventos() {
     return (
         <div>
         <Button color="primary" variant="contained" onClick={abrirCerrarCarga}>Crear Evento</Button>
+        <br/><br/>
         <Grid container spacing={3}>
-            {itemsEventos()}
+            {eventosDisplay}
         </Grid>
         <Modal open={modalEvento} onClose={abrirCerrarCarga}>
             {bodyModal}

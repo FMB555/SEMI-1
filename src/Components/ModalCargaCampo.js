@@ -24,13 +24,9 @@ export default function ModalCargaCampo() {
         <div>
             <form>
                 <h1>Cargá tu campo</h1>
-                {/*Cargar datos generales del campo*/}
                 <Grid container spacing={3}>
-                    <Grid item xs={12} sm={8}>
+                    <Grid item xs={12}>
                         <TextField id="outlined-basic" label="Ingrese el Nombre de su Campo" variant="outlined" fullWidth={true} onChange={handleNombre} required/>
-                    </Grid>
-                    <Grid item xs={12} sm={4}>
-                        <TextField id="outlined-basic" label="Ingresar la Cantidad de Hectáreas" variant="outlined" type='number' fullWidth={true} onChange={handleHectareas} required/>
                     </Grid>
                 </Grid>
                 <br/>

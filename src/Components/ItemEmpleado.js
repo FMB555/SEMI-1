@@ -56,7 +56,7 @@ export default function ItemEmpleado(props) {
     }
 
     //Funcion que trae las tareas asignadas al empleado
-    const [tareas, setTareas] = useState([])
+    const [tareas, setTareas] = useState(empleado.tareas)
 
     const addTarea = (e) => {
         e.preventDefault()
@@ -102,10 +102,6 @@ export default function ItemEmpleado(props) {
                         </TableHead>
 
                         <TableBody>
-                            <TableRow>
-                                <TableCell>2020-11-18</TableCell>
-                                <TableCell>Terminar el sprint 4</TableCell>
-                            </TableRow>
 
                             {itemsTareas}
                             
@@ -142,7 +138,7 @@ export default function ItemEmpleado(props) {
                             {empleado.nombre}
                         </Typography>
                         <Typography className={classes.pos} color="textSecondary">
-                            Tareas por hacer: {tareas.length + 1}
+                            Tareas por hacer: {tareas.length}
                         </Typography>
                     </CardContent>
                 </Card>

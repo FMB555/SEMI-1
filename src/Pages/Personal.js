@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import clsx from 'clsx';
 
 //Estilos de Material UI
 import { makeStyles } from '@material-ui/core/styles';
 
 //Elementos de Material UI
-import { Box, Typography, Container, Grid, Paper, Button } from '@material-ui/core';
+import { Container, Grid, Paper, Button } from '@material-ui/core';
 
 //Iconos de Material UI
 import {  } from '@material-ui/icons';
@@ -14,20 +13,7 @@ import {  } from '@material-ui/icons';
 //Nuestras partes
 import MiAppbar from '../Components/Appbar'
 import Empleados from '../Components/Empleados'
-import Estadisticas from '../Components/EstadisticasPersonal'
-
-
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      {' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+//import Estadisticas from '../Components/EstadisticasPersonal'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,15 +34,12 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     overflow: 'auto',
     flexDirection: 'column',
-  },
-  fixedHeight: {
-    height: 240,
-  },
+    minHeight: '370px'
+  }
 }));
 
 export default function Dashboard() {
   const classes = useStyles();
-  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight)
 
   return (
     <>
@@ -71,8 +54,7 @@ export default function Dashboard() {
               <Link to='/lote'><Button size="small" color="secondary">Lotes</Button></Link>
             </Grid>
             <Grid item xs={10}>
-              <h1>[Nombre Campo]</h1>
-              <h2>[n] Hectáreas</h2>
+              <h1>Mi Campo</h1>
             </Grid>
             <Grid item xs={1}>
               <Link to='/finanzas'><Button size="small" color="secondary">Finanzas</Button></Link>
@@ -83,22 +65,19 @@ export default function Dashboard() {
 
 
             <Grid item xs={12}>
-              <Paper className={fixedHeightPaper}>
+              <Paper className={classes.paper}>
                 <h3>Empleados</h3>
                 <Empleados />
               </Paper>
             </Grid>
 
-            <Grid item xs={12}>
+            {/*<Grid item xs={12}>
               <Paper className={classes.paper}>
                 <h3>Estadísticas de Tareas</h3>
                 <Estadisticas />
               </Paper>
-            </Grid>
+            </Grid>*/}
           </Grid>
-          <Box pt={4}>
-            <Copyright />
-          </Box>
         </Container>
       </main>
     </div>

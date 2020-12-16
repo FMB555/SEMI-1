@@ -74,8 +74,7 @@ export default function Dashboard() {
               <Link to='/finanzas'><Button size="small" color="secondary">Finanzas</Button></Link>
             </Grid>
             <Grid item xs={10}>
-              <h1>[Nombre Campo]</h1>
-              <h2>[n] Hectáreas</h2>
+              <h1>Mi campo</h1>
             </Grid>
             <Grid item xs={1}>
               <Link to='/personal'><Button size="small" color="secondary">Personal</Button></Link>

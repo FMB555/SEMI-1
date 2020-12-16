@@ -65,49 +65,93 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Dashboard() {
   const classes = useStyles();
+  
+  const data = [
+    {
+      id: 0,
+      fecha: "14/12/2020",
+      detalle: "Vacunas",
+      etiqueta: "Animales",
+      precio: 1500
+    },
+    {
+      id: 1,
+      fecha: "14/12/2020",
+      detalle: "Comida para los empleados",
+      etiqueta: "Personal",
+      precio: 800
+    },
+    {
+      id: 2,
+      fecha: "15/12/2020",
+      detalle: "Combustible para la camioneta",
+      etiqueta: "Maquinaria",
+      precio: 3000
+    },
+    {
+      id: 3,
+      fecha: "15/12/2020",
+      detalle: "Pagar al transportista",
+      etiqueta: "Otro",
+      precio: 700
+    },
+  ]
 
-  const [detalle, setDetalle] = useState("")
-  const handleDetalle = (e) => {
-    setDetalle(e.target.value)
+  const [gastos, setGastos] = useState(data)
+
+  
+  const [total, setTotal] = useState(6000)
+  const calcularTotal = (ult) => {
+    let newTotal = 0
+    var i = 0
+    for(i = 0; i < gastos.length; i++){
+      newTotal += gastos[i].precio
+    }
+    newTotal += ult
+    console.log("Nuevo total: ",newTotal)
+    setTotal(newTotal)
   }
 
-  const [tag, setTag] = useState("")
-  const handleTag = (e) => {
-    setTag(e.target.value)
-  }
-
-  const [precio, setPrecio] = useState(0)
-  const handlePrecio = (e) => {
-    setPrecio(e.target.value)
-  }
-
-  const [gastos, setGastos] = useState([])
-
+  
+    const [detalle, setDetalle] = useState("")
+    const handleDetalle = (e) => {
+      setDetalle(e.target.value)
+    }
+  
+    const [tag, setTag] = useState("")
+    const handleTag = (e) => {
+      setTag(e.target.value)
+    }
+  
+    const [precio, setPrecio] = useState(0)
+    const handlePrecio = (e) => {
+      setPrecio(e.target.value)
+    }
   const addGasto = (e) => {
     e.preventDefault()
     
     let hoy = new Date()
 
     let nuevoGasto = {
-        fecha: (hoy.getDate() + "/" + (hoy.getMonth() +1) + "/" + hoy.getFullYear()),
-        detalle: detalle,
-        etiqueta: tag,
-        precio: precio
+      id: gastos.length,
+      fecha: (hoy.getDate() + "/" + (hoy.getMonth() +1) + "/" + hoy.getFullYear()),
+      detalle: detalle,
+      etiqueta: tag,
+      precio: parseFloat(precio)
     }
 
     setDetalle("")
     setTag("")
-    setPrecio("")
+    setPrecio(0)
 
     let arrayGastos = [...gastos, nuevoGasto]
 
     setGastos(arrayGastos)
-
-    console.log(arrayGastos)
+    calcularTotal(nuevoGasto.precio)
   }
 
   const itemsGastos = gastos.map( gasto => (
-    <TableRow>
+    <TableRow key={gasto.id}>
         <TableCell>{gasto.fecha}</TableCell>
         <TableCell>{gasto.detalle}</TableCell>
         <TableCell>{gasto.etiqueta}</TableCell>
@@ -128,8 +172,7 @@ export default function Dashboard() {
               <Link to='/personal'><Button size="small" color="secondary">Personal</Button></Link>
             </Grid>
             <Grid item xs={10}>
-              <h1>[Nombre Campo]</h1>
-              <h2>[n] Hectáreas</h2>
+              <h1>Mi campo</h1>
             </Grid>
             <Grid item xs={1}>
               <Link to='/lote'><Button size="small" color="secondary">Lotes</Button></Link>
@@ -150,18 +193,6 @@ export default function Dashboard() {
                     </TableHead>
 
                     <TableBody>
-                      <TableRow>
-                          <TableCell>17/11/2020</TableCell>
-                          <TableCell>Vacunas</TableCell>
-                          <TableCell>Animales</TableCell>
-                          <TableCell>$69</TableCell>
-                      </TableRow>
-                      <TableRow>
-                          <TableCell>17/11/2020</TableCell>
-                          <TableCell>Comida para el personal</TableCell>
-                          <TableCell>Personal</TableCell>
-                          <TableCell>$420</TableCell>
-                      </TableRow>
 
                       {itemsGastos}
                       
@@ -169,7 +200,7 @@ export default function Dashboard() {
                           <TableCell></TableCell>
                           <TableCell></TableCell>
                           <TableCell>Total</TableCell>
-                          <TableCell>[Calcular total]</TableCell>
+                          <TableCell>$ {total}</TableCell>
                       </TableRow>
 
                     </TableBody>

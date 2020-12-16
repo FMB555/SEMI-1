@@ -45,14 +45,9 @@ export default function Appbar() {
         <AppBar position="absolute" className={classes.appBar}>
             <Toolbar className={classes.toolbar}>
                 <Link to='/'><Button><Home/></Button></Link>
-                
                 <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                    <img src={VacaStats} alt="" style={{width:32, height:32}}/> Vaca Stats
+                    <img src={VacaStats} alt="" style={{width:32, height:32}}/> VacaStats
                 </Typography>
-                {
-                 // <Link to='/'><Button><Logout/></Button></Link>
-
-                }
             </Toolbar>
         </AppBar>
         </>

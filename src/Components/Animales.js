@@ -21,10 +21,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Animales() {
     const classes = useStyles();
 
-    
-    //CREAR UNA FUNCION QUE AGARRA UN ARRAY DE ANIMALES Y LO CONVIERTE A CADA UNO EN UN ITEM
-
-    const animales = [/*
+    const animales = [
         {
             caravana: "ST 5016-8",
             categoria: "Novillo",
@@ -32,8 +29,32 @@ export default function Animales() {
             ingreso: "01/02/2020",
             madre: false,
             genero: "Macho",
-            peso: "120",
-            fechaPeso: "18/11/2020"
+            peso: "180",
+            fechaPeso: "18/11/2020",
+            vacunas: [
+                {
+                    id: 0,
+                    nombre: "Clostridial",
+                    dosis: "Primera",
+                    fecha: "18-02-2020",
+                    aplicada: true
+                },
+                {
+                    id: 1,
+                    nombre: "Clostridial",
+                    dosis: "Segunda",
+                    fecha: "18-03-2020",
+                    aplicada: true
+                },
+                {
+                    id: 2,
+                    nombre: "Clostridial",
+                    dosis: "Tercera",
+                    fecha: "18-04-2020",
+                    aplicada: true
+                },
+                
+            ]
         },
         {
             caravana: "ST 5017-8",
@@ -42,8 +63,31 @@ export default function Animales() {
             ingreso: "1/02/2020",
             madre: false,
             genero: "Macho",
-            peso: "150",
-            fechaPeso: "18/11/2020"
+            peso: "170",
+            fechaPeso: "18/11/2020",
+            vacunas: [
+                {
+                    id: 0,
+                    nombre: "Clostridial",
+                    dosis: "Primera",
+                    fecha: "18-02-2020",
+                    aplicada: true
+                },
+                {
+                    id: 1,
+                    nombre: "Clostridial",
+                    dosis: "Segunda",
+                    fecha: "18-03-2020",
+                    aplicada: true
+                },
+                {
+                    id: 2,
+                    nombre: "Clostridial",
+                    dosis: "Tercera",
+                    fecha: "18-04-2020",
+                    aplicada: true
+                },
+            ]
         },
         {
             caravana: "ST 5018-8",
@@ -53,7 +97,17 @@ export default function Animales() {
             madre: false,
             genero: "Hembra",
             peso: "130",
-            fechaPeso: "18/11/2020"
+            fechaPeso: "18/11/2020",
+            vacunas: [
+                {
+                    id: 0,
+                    nombre: "Clostridial",
+                    dosis: "Primera",
+                    fecha: "18-02-2020",
+                    aplicada: true
+                },
+                
+            ]
         },
         {
             caravana: "ST 5019-8",
@@ -63,7 +117,17 @@ export default function Animales() {
             madre: false,
             genero: "Hembra",
             peso: "270",
-            fechaPeso: "18/11/2020"
+            fechaPeso: "18/11/2020",
+            vacunas: [
+                {
+                    id: 0,
+                    nombre: "Clostridial",
+                    dosis: "Primera",
+                    fecha: "18-02-2020",
+                    aplicada: true
+                },
+                
+            ]
         },
         {
             caravana: "ST 5020-8",
@@ -73,8 +137,18 @@ export default function Animales() {
             madre: false,
             genero: "Macho",
             peso: "120",
-            fechaPeso: "18/11/2020"
-        },*/
+            fechaPeso: "18/11/2020",
+            vacunas: [
+                {
+                    id: 0,
+                    nombre: "Clostridial",
+                    dosis: "Primera",
+                    fecha: "18-02-2020",
+                    aplicada: true
+                },
+                
+            ]
+        },
         {
             caravana: "ST 5021-8",
             categoria: "Vaca",
@@ -83,13 +157,23 @@ export default function Animales() {
             madre: true,
             genero: "Hembra",
             peso: "230",
-            fechaPeso: "15/11/2020"
+            fechaPeso: "15/11/2020",
+            vacunas: [
+                {
+                    id: 0,
+                    nombre: "Clostridial",
+                    dosis: "Primera",
+                    fecha: "18-02-2020",
+                    aplicada: true
+                },
+                
+            ]
         }
         
     ]
 
     const bodyAnimales = animales.map(vaca => (
-        <ItemAnimal className={classes.item} vaca={vaca}/>
+        <ItemAnimal className={classes.item} vaca={vaca} key={vaca.caravana}/>
     ))
 
 

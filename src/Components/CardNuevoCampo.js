@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { makeStyles } from '@material-ui/core/styles';
-import {Card, CardContent, Button, Typography,
-        Modal} from '@material-ui/core';
+import {Card, CardContent, Button, Typography, Modal} from '@material-ui/core';
 import {AddCircle} from '@material-ui/icons';
 import ModalCargaCampo from './ModalCargaCampo'
 
@@ -20,8 +19,7 @@ const useStyles = makeStyles((theme) => ({
     },
     modal: {
         position: 'absolute',
-        width: '75%',
-        height: '75%',
+        width: '60%',
         backgroundColor: theme.palette.background.paper,
         border: '2px solid #000',
         boxShadow: theme.shadows[5],
@@ -29,8 +27,7 @@ const useStyles = makeStyles((theme) => ({
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        overflowY: 'auto',
-        maxHeight: 'calc(100vh - 210px)'
+        overflowY: 'auto'
     }
   }));
 
